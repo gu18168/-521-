@@ -1,0 +1,112 @@
+.dropdown {
+  z-index: 1;
+  width: 100%;
+  height: 170px;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 50px 100px rgba(50, 50, 93, .1),
+    0 15px 35px rgba(50, 50, 93, .15),
+    0 5px 15px rgba(0, 0, 0, .1);
+  transition-property: top;
+  transition: ease .5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.index {
+  background: #3E8AEE;
+  height: 170px;
+  color: #fff;
+}
+
+.message {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-bottom: 5rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  height: 200rpx;
+}
+
+.userinfo-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  border: 2px solid #999;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  text-align: center;
+}
+
+.messInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  height: 180rpx;
+  padding: 10rpx 10rpx 10rpx;
+}
+
+.operation {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.distance {
+  display: flex;
+  flex-direction: column;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn {
+  height: 52%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  background: #fff;
+  padding: 0 14px;
+  color: #333;
+  transition: all .1s ease;
+  justify-content: center;
+}
+
+.btnHover {
+  color: #666;
+  background-color: #f6f9fc;
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+}
+
+.btn.contact {
+  background: #3E8AEE;
+  color: #fff;
+}
+
+.map {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition-property: height;
+  transition: ease .5s;
+}
+
+.focus {
+  color: #3E8AEE;
+  font-size: 18px;
+}

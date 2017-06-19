@@ -1,0 +1,48 @@
+<view class="dropdown" style="top: {{top}}%;">
+  <view class="message">
+    <view class="userInfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="messInfo">
+      <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</text>
+    </view>
+  </view>
+  <view class="operation">
+    <view class="distance" style="width: {{disWidth}}px;">
+      <view class="meter">
+        <text class="focus">{{distance}}</text> <text> 米</text>
+      </view>
+      <text>距离我的位置</text>
+    </view>
+
+    <view class="distance" style="width: {{disWidth}}px;">
+      <view class="meter">
+        <text class="focus">{{minute}}</text> <text> 分钟</text>
+      </view>
+      <text>步行可到达</text>
+    </view>
+
+    <view class="distance" style="width: {{btnWidth}}px; margin: 0 {{btnMargin}}px;">
+      <view class="btn navigate" hover-class="btnHover">
+        <text>到这去</text>
+      </view>
+    </view>
+
+    <view class="distance" style="width: {{btnWidth}}px; margin: 0 {{btnMargin}}px;">
+      <view class="btn contact" hover-class="btnHover">
+        <text>联系TA</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="index">
+  <text>hahah</text>
+</view>
+<map  class="map" id="map"
+  longitude="{{long}}" latitude="{{lat}}" scale="16"
+  markers="{{markers}}" bindmarkertap="markertap"
+  controls="{{controls}}" bindcontroltap="controltap"
+  style="width: 100%; height: {{height}}px"
+  show-location bindtap="tap"
+  wx:if="{{map}}"></map>

@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto" bindtap="bindToSwitch">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <button bindtap="bindToFlex"> Flex！ </button>
+  <button bindtap="bindToScroll"> Scroll! </button>
+  <button bindtap="bindToSwiper"> Swiper! </button>
+  <button bindtap="bindToMovable"> Movable! </button>
+  <button bindtap="bindToMap"> Map! </button>
+</view>

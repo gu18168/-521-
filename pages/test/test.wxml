@@ -1,0 +1,19 @@
+<view> Hello {{name}} </view>
+<button bindtap="changeName"> Click me! </button>
+<view>{{num}}</view>
+<button bindtap="changeNum"> Change Array data </button>
+<view>{{array[0].text}}</view>
+<button bindtap="changeItemInArray"> Change Array data </button>
+<view>{{object.text}}</view>
+<button bindtap="changeItemInObject"> Change Object data </button>
+<view>{{newField.text}}</view>
+<button bindtap="addNewField"> Add new data </button>
+<view wx:for="{{[zero, 1, 2, 3]}}"> {{item}} </view>
+<view wx:for="{{array1}}">{{index}}:{{item.message}}</view>
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>

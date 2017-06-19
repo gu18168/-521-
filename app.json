@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/map/map",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/test/test",
+    "pages/switch/switch",
+    "pages/flex/flex",
+    "pages/scroll/scroll",
+    "pages/swiper/swiper",
+    "pages/movable/movable"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#3E8AEE",
+    "navigationBarTitleText": "青春521",
+    "navigationBarTextStyle":"#fff"
+  }
+}
