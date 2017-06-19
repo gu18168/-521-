@@ -15,6 +15,10 @@ Page({
     disWidth: 0,
     btnWidth: 0,
     btnMargin: 0,
+    allEnd: 'b',
+    favEnd: 'w',
+    accEnd: 'w',
+    current: 0,
     markers: [],
     controls: [{
       id: 0,
@@ -120,11 +124,57 @@ Page({
       }
     })
   },
+  swiperChange: function(e) {
+    console.log(e.detail.current);
+    if (e.detail.current === 0) {
+      this.setData({
+        allEnd: 'b',
+        favEnd: 'w',
+        accEnd: 'w'
+      })
+    } else if (e.detail.current === 1) {
+      this.setData({
+        allEnd: 'w',
+        favEnd: 'b',
+        accEnd: 'w'
+      })
+    } else if (e.detail.current === 2) {
+      this.setData({
+        allEnd: 'w',
+        favEnd: 'w',
+        accEnd: 'b'
+      })
+    }
+  },
+  allTap: function() {
+    this.setData({
+      allEnd: 'b',
+      favEnd: 'w',
+      accEnd: 'w',
+      current: 0
+    })
+  },
+  favTap: function() {
+    this.setData({
+      allEnd: 'w',
+      favEnd: 'b',
+      accEnd: 'w',
+      current: 1
+    })
+  },
+  accTap: function() {
+    this.setData({
+      allEnd: 'w',
+      favEnd: 'w',
+      accEnd: 'b',
+      current: 2
+    })
+  },
   onLoad: function() {
     let that = this
     //得到用户信息
     app.getUserInfo(function(userInfo){
-      console.log(userInfo)
+      // console.log(userInfo)
       that.setData({
         userInfo: userInfo
       })

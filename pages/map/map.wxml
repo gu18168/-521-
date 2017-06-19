@@ -37,9 +37,45 @@
   </view>
 </view>
 <view class="index">
-  <text>hahah</text>
+  <swiper bindchange="swiperChange" current="{{current}}">
+    <swiper-item class="card-wrapper">
+      <view class="card-item">
+        <text>Hahaha1</text>
+      </view>
+    </swiper-item>
+    <swiper-item class="card-wrapper">
+      <view class="card-item">
+        <text>Hahaha2</text>
+      </view>
+    </swiper-item>
+    <swiper-item class="card-wrapper">
+      <view class="card-item">
+        <text>Hahaha3</text>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class="swiper-control">
+    <view class="control-btn {{allEnd}}" bindtap="allTap">
+      <view class="btn-wrap">
+        <image src="/img/all_{{allEnd}}.png" style="width: 13px; height: 13px;" />
+        <text class="control-text">活动</text>
+      </view>
+    </view>
+    <view class="control-btn {{favEnd}}" bindtap="favTap">
+      <view class="btn-wrap">
+        <image src="/img/favorites_{{favEnd}}.png" style="width: 13px; height: 13px;" />
+        <text class="control-text">动态</text>
+      </view>
+    </view>
+    <view class="control-btn {{accEnd}}" bindtap="accTap">
+      <view class="btn-wrap">
+        <image src="/img/account_{{accEnd}}.png" style="width: 13px; height: 13px;" />
+        <text class="control-text">资料</text>
+      </view>
+    </view>
+  </view>
 </view>
-<map  class="map" id="map"
+<map class="map" id="map"
   longitude="{{long}}" latitude="{{lat}}" scale="16"
   markers="{{markers}}" bindmarkertap="markertap"
   controls="{{controls}}" bindcontroltap="controltap"
