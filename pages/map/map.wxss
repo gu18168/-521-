@@ -120,6 +120,68 @@ swiper {
   position: relative;
 }
 
+.activity {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.activity image {
+  position: absolute;
+  left: -24%;
+  transition: .5s all cubic-bezier(.19, 1, .22, 1);
+  z-index: 1;
+}
+
+.activity .signInfo {
+  margin: 30rpx;
+  margin-left: 12%;
+  overflow: hidden;
+  transition: .5s cubic-bezier(.19, 1, .22, 1);
+  will-change: transform;
+  filter: blur(0);
+}
+
+.actHover.activity image {
+  left: 4%;
+}
+
+.actHover.activity .signInfo {
+  opacity: .7;
+  transform: scale(.95);
+  filter: blur(10px);
+}
+
+.activity .signTitle {
+  font-size: 26px;
+}
+
+.actInfo {
+  font-size: 12px;
+}
+
+.activity .btn-wrap {
+  position: absolute;
+  top: 20%;
+  bottom: 16%;
+  right: 6%;
+  transform: translate(0, 5px) scale(.95);
+  display: none;
+  opacity: 0;
+  transition: .7s cubic-bezier(.19, 1, .22, 1);
+}
+
+.actHover.activity .btn-wrap {
+  display: flex;
+  opacity: 1;
+  transform: translate(0,-7px);
+}
+
+.activity .btn {
+  margin: 0 16rpx;
+  padding: 10px 14px;
+}
+
 .card-item.info {
   display: flex;
   flex-direction: row;
@@ -137,7 +199,7 @@ swiper {
   margin: 0;
 }
 
-.info .signInfo {
+.signInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -22,6 +22,8 @@ Page({
     sex: '男',
     age: 20,
     college: 14,
+    actDay: 3,
+    actHover: '',
     markers: [],
     controls: [{
       id: 0,
@@ -128,7 +130,6 @@ Page({
     })
   },
   swiperChange: function(e) {
-    console.log(e.detail.current);
     if (e.detail.current === 0) {
       this.setData({
         allEnd: 'b',
@@ -172,6 +173,23 @@ Page({
       accEnd: 'b',
       current: 2
     })
+  },
+  actTap: function() {
+    if (this.data.actHover === '') {
+      this.setData({
+        actHover: 'actHover'
+      })
+    } else {
+      this.setData({
+        actHover: ''
+      })
+    }
+  },
+  actMore: function() {
+    console.log("More")
+  },
+  actSubmit: function() {
+    console.log("Submit")
   },
   onLoad: function() {
     let that = this

@@ -39,12 +39,29 @@
 <view class="index">
   <swiper bindchange="swiperChange" current="{{current}}">
     <swiper-item class="card-wrapper">
-      <view class="card-item">
-        <text>Hahaha1</text>
+      <view class="card-item activity {{actHover}}" bindtap="actTap">
+        <image src="/img/activity.png" style="width: 112px;" mode="widthFix"/>
+        <view class="signInfo">
+          <view style="display: flex; flex-direction:row; flex-shrink: 0; justify-content:space-between; align-items:baseline;">
+            <text class="signTitle">活动</text>
+            <view>
+              <text class="actInfo">还剩</text><text class="focus" style="margin: 0 6rpx;">{{actDay}}</text><text class="actInfo">天</text>
+            </view>
+          </view>
+          <text style="flex-shrink: 1;">好久没吃鸡，大吉大利，那就今晚吃鸡！好久没吃鸡，大吉大利，那就今晚吃鸡！</text>
+        </view>
+        <view class="btn-wrap">
+          <view class="btn" hover-class="btnHover" bindtap="actMore">
+            <text>详情</text>
+          </view>
+          <view class="btn contact" hover-class="btnHover" bindtap="actSubmit">
+            <text>报名</text>
+          </view>
+        </view>
       </view>
     </swiper-item>
     <swiper-item class="card-wrapper">
-      <view class="card-item">
+      <view class="card-item moment">
         <text>Hahaha2</text>
       </view>
     </swiper-item>
