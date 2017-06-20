@@ -19,6 +19,9 @@ Page({
     favEnd: 'w',
     accEnd: 'w',
     current: 0,
+    sex: '男',
+    age: 20,
+    college: 14,
     markers: [],
     controls: [{
       id: 0,

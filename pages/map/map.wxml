@@ -49,8 +49,22 @@
       </view>
     </swiper-item>
     <swiper-item class="card-wrapper">
-      <view class="card-item">
-        <text>Hahaha3</text>
+      <view class="card-item info">
+        <view class="userInfo">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+        <view class="signInfo">
+          <text class="signTitle">个性签名</text>
+          <text>好久没吃鸡，大吉大利，那就今晚吃鸡！</text>
+          <view class="basicInfo">
+            <text>性别:</text><text class="focus">{{sex}}</text>
+            <text>年龄:</text><text class="focus">{{age}}</text>
+            <text>院系:</text><text class="focus">{{college}}</text>
+          </view>
+        </view>
+        <view class="newMess">
+        </view>
       </view>
     </swiper-item>
   </swiper>
