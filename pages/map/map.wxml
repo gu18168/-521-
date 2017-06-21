@@ -62,7 +62,28 @@
     </swiper-item>
     <swiper-item class="card-wrapper">
       <view class="card-item moment">
-        <text>Hahaha2</text>
+        <view class="momentTitle">
+          <text class="title">最新</text>
+          <text>查看更多</text>
+        </view>
+        <view class="momentContent">
+          <view class="userInfo">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+            <text class="userinfo-location">云天苑</text>
+          </view>
+          <view class="userInfo">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+            <text class="userinfo-location">云天苑</text>
+          </view>
+          <view class="userInfo">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+            <text class="userinfo-location">云天苑</text>
+          </view>
+          <view class="userInfo">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+            <text class="userinfo-location">云天苑</text>
+          </view>
+        </view>
       </view>
     </swiper-item>
     <swiper-item class="card-wrapper">

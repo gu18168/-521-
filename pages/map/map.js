@@ -1,6 +1,8 @@
 var app = getApp()
 var width = 0
 var height = 0
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js')
+var qqmapsdk
 Page({
   data: {
     map: false,
@@ -234,9 +236,28 @@ Page({
         })
       }
     })
+
+    qqmapsdk = new QQMapWX({
+      key: 'YSEBZ-RLCHU-MCPVC-4YYWU-WQN53-IJFGQ'
+    })
   },
   onReady: function(e) {
     this.mapCtx = wx.createMapContext('map')
+  },
+  onShow: function() {
+    var lat = this.data.lat;
+    var long = this.data.long;
+    var locat = "lat<" + lat + ">,lng<" + long + ">";
+    console.log(locat);
+    qqmapsdk.reverseGeocoder({
+      // location: locat.toString(),
+      success: function(res) {
+        console.log(res);
+      },
+      fail: function(res) {
+        console.log(res);
+      }
+    })
   }
 })
 
