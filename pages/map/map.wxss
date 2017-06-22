@@ -1,7 +1,7 @@
 .dropdown {
   z-index: 1;
   width: 100%;
-  height: 170px;
+  height: 340rpx;
   position: absolute;
   top: -100%;
   left: 0;
@@ -31,8 +31,9 @@
 
 /*用户头像*/
 .userinfo-avatar {
-  width: 96rpx;
-  height: 96rpx;
+  box-sizing: border-box;
+  width: 124rpx;
+  height: 124rpx;
   margin: 20rpx;
   border-radius: 50%;
   border: 2px solid #999;
@@ -41,6 +42,8 @@
 .userinfo-nickname {
   color: #aaa;
   text-align: center;
+  font-size: 36rpx;
+  line-height: 36rpx;
 }
 
 .userinfo-location {
@@ -54,8 +57,7 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  height: 180rpx;
-  padding: 10rpx 10rpx 10rpx;
+  padding: 10rpx 10rpx 0rpx;
 }
 
 .operation {
@@ -68,7 +70,7 @@
   display: flex;
   flex-direction: column;
   color: #999;
-  font-size: 12px;
+  font-size: 24rpx;
   text-align: center;
   justify-content: center;
 }
@@ -80,7 +82,7 @@
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
   background: #fff;
-  padding: 0 14px;
+  padding: 0 28rpx;
   color: #333;
   transition: all .1s ease;
   justify-content: center;
@@ -101,7 +103,7 @@
 .index {
   position: relative;
   background: #3E8AEE;
-  height: 170px;
+  height: 340rpx;
   color: #fff;
 }
 
@@ -158,11 +160,11 @@ swiper {
 }
 
 .activity .signTitle {
-  font-size: 26px;
+  font-size: 52rpx;
 }
 
 .actInfo {
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 .activity .btn-wrap {
@@ -184,7 +186,7 @@ swiper {
 
 .activity .btn {
   margin: 0 16rpx;
-  padding: 10px 14px;
+  padding: 16rpx 20rpx;
 }
 
 .moment {
@@ -197,13 +199,13 @@ swiper {
 .momentTitle {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 24rpx;
+  line-height: 40rpx;
 }
 
 .momentTitle .title {
-  font-size: 20px;
+  font-size: 40rpx;
   font-weight: 600;
 }
 
@@ -222,12 +224,12 @@ swiper {
 
 .momentContent .userinfo-avatar {
   margin: 0rpx;
-  height: 116rpx;
-  width: 116rpx;
+  height: 120rpx;
+  width: 120rpx;
 }
 
 .momentContent .userinfo-nickname, .momentContent .userinfo-location {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .info {
@@ -237,30 +239,32 @@ swiper {
 
 .info .userInfo {
   height: auto;
-  justify-content: space-between;
-  margin: 20rpx;
+  margin: 10rpx 0;
 }
 
 .info .userinfo-avatar {
-  height: 140rpx;
-  width: 140rpx;
+  flex-grow: 1;
+  width: 160rpx;
   margin: 0;
+}
+
+.info .userinfo-nickname {
+  margin-top: 10rpx;
 }
 
 .signInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
   color: #333;
-  margin: 20rpx;
+  margin: 20rpx 0 10rpx 20rpx;
   font-size: 16px;
   position: relative;
 }
 
 .signTitle {
   font-weight: 800;
-  font-size: 20px;
+  font-size: 40rpx;
 }
 
 .basicInfo {
@@ -268,11 +272,11 @@ swiper {
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 .basicInfo .focus {
-  font-size: 12px;
+  font-size: 24rpx;
   margin: 0 12rpx;
 }
 
@@ -288,7 +292,7 @@ swiper {
 
 .swiper-control {
   width: 100%;
-  height: 38px;
+  height: 76rpx;
   position: absolute;
   bottom: 0;
   display: flex;
@@ -318,7 +322,7 @@ swiper {
 }
 
 .control-text {
-  font-size: 13px;
+  font-size: 26rpx;
   margin-left: 16rpx;
 }
 
@@ -332,5 +336,5 @@ swiper {
 
 .focus {
   color: #3E8AEE;
-  font-size: 18px;
+  font-size: 36rpx;
 }
