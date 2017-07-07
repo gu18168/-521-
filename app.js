@@ -1,23 +1,17 @@
 //app.js
+var qcloud = require('./vendor/qcloud-weapp-client-sdk/index');
+var config = require('./config');
+
 App({
   onLaunch: function () {
-    // Do something initial when launch.
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-  },
-  onShow: function () {
-    // Do somthing when showl`.
-  },
-  onHide: function () {
-    // Do something when hide.
+    qcloud.setLoginUrl(config.service.loginUrl);
+    qcloud.setMomentUrl(config.service.testUrl);
   },
   onError: function (msg) {
     console.log(msg)
   },
   getUserInfo:function(cb){
-    var that = this
+    var that = this;
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
@@ -26,12 +20,12 @@ App({
         success: function () {
           wx.getUserInfo({
             success: function (res) {
-              that.globalData.userInfo = res.userInfo
+              that.globalData.userInfo = res.userInfo;
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
         }
-      })
+      });
     }
   },
   globalData:{

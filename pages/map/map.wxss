@@ -229,7 +229,7 @@ swiper {
 }
 
 .momentContent .userinfo-nickname, .momentContent .userinfo-location {
-  font-size: 28rpx;
+  font-size: 24rpx;
 }
 
 .info {

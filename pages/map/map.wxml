@@ -67,7 +67,13 @@
           <text>查看更多</text>
         </view>
         <view class="momentContent">
-          <view class="userInfo">
+          <block wx:for="{{q.dataStore}}" wx:key="moment">
+            <view class="userInfo">
+              <image class="userinfo-avatar" src="{{item.who.avatarUrl}}" background-size="cover"></image>
+              <text class="userinfo-location">{{item.where.title}}</text>
+            </view>
+          </block>
+          <!-- <view class="userInfo">
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
             <text class="userinfo-location">云天苑</text>
           </view>
@@ -82,7 +88,7 @@
           <view class="userInfo">
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
             <text class="userinfo-location">云天苑</text>
-          </view>
+          </view> -->
         </view>
       </view>
     </swiper-item>

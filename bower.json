@@ -1,0 +1,26 @@
+{
+  "name": "青春521",
+  "description": "基于LBS的校园动态发布平台",
+  "main": "app.js",
+  "authors": [
+    "Nick Gu"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "lbs",
+    "wechat",
+    "weapp",
+    "moment"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "qcloud-weapp-client-sdk": "*"
+  }
+}

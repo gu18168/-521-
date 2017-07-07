@@ -1,14 +1,8 @@
 {
   "pages":[
     "pages/map/map",
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/test/test",
-    "pages/switch/switch",
-    "pages/flex/flex",
-    "pages/scroll/scroll",
-    "pages/swiper/swiper",
-    "pages/movable/movable"
+    "pages/moment/moment",
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",

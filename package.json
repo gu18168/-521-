@@ -1,0 +1,9 @@
+{
+  "name": "青春521",
+  "version": "1.0.0",
+  "description": "基于LBS的校园动态发布平台",
+  "main": "app.js",
+  "keywords": [],
+  "author": "Nick Gu",
+  "license": "MIT"
+}
