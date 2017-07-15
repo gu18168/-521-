@@ -1,34 +1,31 @@
-//app.js
 var qcloud = require('./vendor/qcloud-weapp-client-sdk/index');
 var config = require('./config');
 
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     qcloud.setLoginUrl(config.service.loginUrl);
     qcloud.setMomentUrl(config.service.testUrl);
   },
   onError: function (msg) {
-    console.log(msg)
+  	console.log(msg)
   },
-  getUserInfo:function(cb){
-    var that = this;
-    if(this.globalData.userInfo){
+  getUserInfo: function(cb) {
+    var that = this
+    if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
+    } else {
       //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo;
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
+      wx.getUserInfo({
+        withCredentials: false,
+        success: function(res) {
+          that.globalData.userInfo = res.userInfo
+          typeof cb == "function" && cb(that.globalData.userInfo)
         }
-      });
+      })
     }
   },
-  globalData:{
-    userInfo:null
+
+  globalData: {
+    userInfo: null
   }
 })

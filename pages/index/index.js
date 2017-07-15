@@ -9,37 +9,7 @@ Page({
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../test/test'
-    })
-  },
-  bindToSwitch: function() {
-    wx.navigateTo({
-      url: '../switch/switch'
-    })
-  },
-  bindToFlex: function() {
-    wx.navigateTo({
-      url: '../flex/flex'
-    })
-  },
-  bindToScroll: function() {
-    wx.navigateTo({
-      url: '../scroll/scroll'
-    })
-  },
-  bindToSwiper: function() {
-    wx.navigateTo({
-      url: '../swiper/swiper'
-    })
-  },
-  bindToMovable: function() {
-    wx.navigateTo({
-      url: '../movable/movable'
-    })
-  },
-  bindToMap: function() {
-    wx.navigateTo({
-      url: '../map/map'
+      url: '../logs/logs'
     })
   },
   onLoad: function () {
