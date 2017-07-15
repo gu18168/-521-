@@ -12,13 +12,18 @@ var showSuccess = text => wx.showToast({
 })
 
 // 显示失败提示
-var showModel = (title, content) => {
+var showModel = (title, content, func) => {
     wx.hideToast()
 
     wx.showModal({
         title,
         content: JSON.stringify(content),
-        showCancel: false
+        showCancel: false,
+        success: (res) => {
+          if (res.confirm) {
+            func()
+          }
+        }
     })
 }
 

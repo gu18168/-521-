@@ -1,11 +1,12 @@
 {
   "pages":[
+    "pages/login/login",
     "pages/map/map",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#3E8AEE",
+    "navigationBarBackgroundColor": "#E79749",
     "navigationBarTitleText": "青春521",
     "navigationBarTextStyle":"#fff"
   }

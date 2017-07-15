@@ -1,0 +1,33 @@
+.title {
+	color: #E79749;
+	font-size: 54rpx;
+	font-weight: 700;
+	text-align: center;
+	margin: 60rpx 0 50rpx;
+}
+
+.input-section {
+	margin: 10rpx 40rpx;
+}
+
+.input-section input {
+	font-size: 36rpx;
+	padding: 16rpx;
+	border: 2px solid #d3d5d7;
+	border-bottom: none;
+}
+
+.input-section input:first-of-type {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.input-section input:last-of-type {
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom: 2px solid #d3d5d7;
+}
+
+.input-section button {
+	margin-top: 36rpx;
+}

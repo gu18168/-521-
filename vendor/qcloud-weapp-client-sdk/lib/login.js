@@ -138,9 +138,17 @@ var login = function login(options) {
     var session = Session.get();
     if (!session.bindTyp) {
         if (session.loginType === 'UPDATE_SESSION') {
-            popup.showModel('需要绑定', '徘徊这么久了，进来看看吧')
+            popup.showModel('需要绑定', '徘徊这么久了，进来看看吧', () => {
+                wx.navigateTo({
+                    url: '../login/login'
+                })
+            })
         } else if (session.loginType === 'NEW_SESSION') {
-            popup.showModel('需要绑定', '第一次来别见外！')
+            popup.showModel('需要绑定', '第一次来别见外！', () => {
+                wx.navigateTo({
+                    url: '../login/login'
+                })
+            })
         }
     } else {
         if (session) {
