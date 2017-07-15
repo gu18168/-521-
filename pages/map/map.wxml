@@ -1,0 +1,4 @@
+<map id="map"
+	longitude="{{position.longitude}}" latitude="{{position.latitude}}" scale="16" show-location wx:if="{{map}}" style="width: {{mapSize.width}}px; height: {{mapSize.height}}px;"
+	controls="{{controls}}" bindcontroltap="controltap">
+</map>
