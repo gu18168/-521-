@@ -2,6 +2,8 @@ var utils = require('./utils');
 var constants = require('./constants');
 var Session = require('./session');
 
+var popup = require('../../../utils/popup.js');
+
 /***
  * @class
  * 表示登录过程中发生的异常
@@ -82,7 +84,7 @@ var login = function login(options) {
             options.fail(wxLoginError);
             return;
         }
-        
+
         var userInfo = wxLoginResult.userInfo;
 
         // 构造请求头，包含 code、encryptedData 和 iv
@@ -134,19 +136,27 @@ var login = function login(options) {
     });
 
     var session = Session.get();
-    if (session) {
-        wx.checkSession({
-            success: function () {
-                options.success(session.userInfo);
-            },
-
-            fail: function () {
-                Session.clear();
-                doLogin();
-            },
-        });
+    if (!session.bindTyp) {
+        if (session.loginType === 'UPDATE_SESSION') {
+            popup.showModel('需要绑定', '徘徊这么久了，进来看看吧')
+        } else if (session.loginType === 'NEW_SESSION') {
+            popup.showModel('需要绑定', '第一次来别见外！')
+        }
     } else {
-        doLogin();
+        if (session) {
+            wx.checkSession({
+              success: function () {
+                  options.success(session.userInfo);
+              },
+
+              fail: function () {
+                 Session.clear();
+                 doLogin();
+              },
+            });
+        } else {
+            doLogin();
+        }
     }
 };
 
