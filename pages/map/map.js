@@ -108,6 +108,7 @@ Page({
 
     // 监听自定义消息（服务器进行推送）
     tunnel.on('moment', moment => {
+      // @todo 接收到动态的提示
       console.log('收到说话消息：', moment);
     });
 
@@ -127,7 +128,9 @@ Page({
       // @todo 刷新
     } else if (e.controlId == 2) {
       this.closeTunnel()
-      // @todo 发动态
+      wx.navigateTo({
+        url: '../moment/moment'
+      })
     }
   },
  	// 初始化地图尺寸

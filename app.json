@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/map/map",
+    "pages/moment/moment",
     "pages/login/login",
     "pages/logs/logs"
   ],
