@@ -112,6 +112,7 @@ var login = function login(options) {
                     if (data.session) {
                         data.session.userInfo = userInfo;
                         Session.set(data.session);
+                        bind(Session.get());
                         options.success(userInfo);
                     } else {
                         var errorMessage = '登录失败(' + data.error + ')：' + (data.message || '未知错误');
@@ -135,23 +136,27 @@ var login = function login(options) {
         });
     });
 
-    var session = Session.get();
-    if (!session.bindTyp) {
-        if (session.loginType === 'UPDATE_SESSION') {
-            popup.showModel('需要绑定', '徘徊这么久了，进来看看吧', () => {
-                wx.navigateTo({
-                    url: '../login/login'
+    var bind = function(session) {
+        if (!session.bindType) {
+            if (session.loginType === 'UPDATE_SESSION') {
+                popup.showModel('需要绑定', '徘徊这么久了，进来看看吧', () => {
+                    wx.navigateTo({
+                        url: '../login/login'
+                    })
                 })
-            })
-        } else if (session.loginType === 'NEW_SESSION') {
-            popup.showModel('需要绑定', '第一次来别见外！', () => {
-                wx.navigateTo({
-                    url: '../login/login'
+            } else if (session.loginType === 'NEW_SESSION') {
+                popup.showModel('需要绑定', '第一次来别见外！', () => {
+                    wx.navigateTo({
+                        url: '../login/login'
+                    })
                 })
-            })
+            }
         }
-    } else {
-        if (session) {
+    };
+
+    var session = Session.get();
+    if (session) {
+        if (session.bindType) {
             wx.checkSession({
               success: function () {
                   options.success(session.userInfo);
@@ -163,8 +168,10 @@ var login = function login(options) {
               },
             });
         } else {
-            doLogin();
+            bind(session);
         }
+    } else {
+        doLogin()
     }
 };
 

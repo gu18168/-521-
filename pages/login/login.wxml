@@ -2,5 +2,5 @@
 <view class="input-section">
 	<input placeholder="学号/邮箱" auto-focus value="{{username}}" bindchange="changeUsername"/>
 	<input placeholder="密码" password value="{{password}}" bindchange="changePassword"/>
-	<button type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="login">登录</button>
+	<button type="primary" disabled="{{disabled}}" bindtap="login">登录</button>
 </view>

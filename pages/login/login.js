@@ -1,6 +1,10 @@
+var config = require('../../config')
+var popup = require('../../utils/popup.js')
+var Session = require('../../vendor/qcloud-weapp-client-sdk/lib/session')
+var constants = require('../../vendor/qcloud-weapp-client-sdk/lib/constants')
+
 Page({
 	data: {
-		loading: false,
 		disabled: true,
 		username: '',
 		password: ''
@@ -31,42 +35,54 @@ Page({
 		}
 	},
 	login() {
-		let that = this
-		this.data.loading = true
-
-		this.setData({
-			loading: this.data.loading
+		wx.showLoading({
+			title: '正在处理中...'
 		})
 
-		console.log(this.data.loading)
+		wx.request({
+			url: config.service.bindUrl,
+			header: {},
+			method: 'GET',
+			data: {
+				username: this.data.username,
+				password: this.data.password,
+				uuid: Session.get().id
+			},
 
-		// wx.request({
-		// 	url: "/",
-		// 	header: {},
-		// 	method: 'POST',
-		// 	data: {
-		// 		username: this.data.username,
-		// 		password: this.data.password
-		// 	},
+			success: (result) => {
+				var data = result.data;
 
-		// 	success: (result) => {
-		// 		var data = result.data;
+				console.log(data);
 
-		//         if (data && data[constants.WX_SESSION_MAGIC_ID]) {
-		//           if (data.userId) {
-		//             // @todo 成功登录
-		//           } else {
-		//             // @todo 失败登录
-		//           }
-		//         } else {
-		//           // @todo 无响应登录
-		//         }
-		// 	},
+		        if (data && data[constants.WX_SESSION_MAGIC_ID]) {
+		          if (data.session && data.session.userId) {
+		            // @todo 成功登录
+		            popup.showSuccess('绑定成功')
 
-		// 	fail: function (momentResponseError) {
-		//         // @todo 网络错误或服务器错误
-		//     }
-		// })
+		            let session = Session.get()
+		            session.bindType = true
+		            Session.set(session)
+		            wx.navigateBack({
+		    			delta: 1
+        			})
+		          } else {
+		            // @todo 失败登录
+		            popup.showModel('绑定失败', '该账号已被绑定')
+		          }
+		        } else {
+		          // @todo 无响应登录
+		          popup.showModel('绑定失败', '出现某种未知的错误')
+		        }
+			},
+
+			fail: function (momentResponseError) {
+		        popup.showModel('绑定失败', '可能是网络错误或者服务器发生异常')
+		    },
+
+		    complete: () => {
+		    	wx.hideLoading()
+		    }
+		})
 	},
 	onLoad() {
 		wx.setNavigationBarTitle({
