@@ -59,7 +59,17 @@ var controls = [
 			height: 56
 		},
 		clickable: true
-	}
+	},
+  {
+    id: 3,
+    iconPath: '/img/shadow.png',
+    position: {
+      left: 0,
+      top: 0,
+      width: 20,
+      height: 50
+    }
+  }
 ]
 
 var mapSize = {
@@ -138,10 +148,13 @@ Page({
  		let device = Device.get()
  		this.data.mapSize.width = device.width
  		this.data.mapSize.height = device.height
- 		this.data.controls[0].position.top = this.data.mapSize.height - 80
-      this.data.controls[1].position.top = this.data.mapSize.height - 145
-      this.data.controls[2].position.top = this.data.mapSize.height - 80
-      this.data.controls[2].position.left = this.data.mapSize.width / 2 - 60
+ 		this.data.controls[0].position.top = this.data.mapSize.height - 136
+    this.data.controls[1].position.top = this.data.mapSize.height - 201
+    this.data.controls[2].position.top = this.data.mapSize.height - 136
+    this.data.controls[2].position.left = this.data.mapSize.width / 2 - 60
+    this.data.controls[3].position.width = this.data.mapSize.width * 1.2
+    this.data.controls[3].position.left = this.data.mapSize.width * (-0.1)
+    this.data.controls[3].position.top = this.data.mapSize.height - 98
  	},
  	onLoad() {
  		let that = this;

@@ -7,4 +7,86 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+@font-face {
+	font-family: '521';
+	src: url('a21.eot');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: '521';
+	src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAWEAA0AAAAAB5AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAFaAAAABoAAAAcf0ijr0dERUYAAAVMAAAAHAAAAB4AJwAPT1MvMgAAAZQAAAA/AAAAYA8TBkZjbWFwAAAB7AAAAF0AAAFuAIrDp2dhc3AAAAVEAAAACAAAAAgAAAAQZ2x5ZgAAAmAAAAHJAAACIPDFEjFoZWFkAAABMAAAAC8AAAA2DkNPBWhoZWEAAAFgAAAAHAAAACQHwgPHaG10eAAAAdQAAAAYAAAAHgvrAABsb2NhAAACTAAAABQAAAAUAYYB9G1heHAAAAF8AAAAGAAAACAADQBNbmFtZQAABCwAAADZAAABa0L95hhwb3N0AAAFCAAAADwAAABj2w2y8XicY2BkYGAAYt1nPXLx/DZfGbhZGEDg6iRWFwT9/wELA/MCIJeDgQkkCgAKngleAHicY2BkYGA+8P8AAwMLAwgASUYGVMAGAExYApN4nGNgZGBg4GTwZmBmAAEmBjQAAAjsAFt4nGNgZl7FOIGBlYGBaSbTGQYGhn4IzfiawZiRkwEVMAqgCTA4MDC+LGQ+8P8AgwMzEIPUIMkqMDACAGTvC2QAeJxjYYAAxlAIzQTELCBGGBA7AAAJ1wD3eJxjYGBgZoBgGQZGBhDIAPIYwXwWBh8gzcfAwcDEwAYUU3jJ+NL7ZeH/v///g1UqvGRA8P8/EWcV2yM2HaybjwEZMILMZ2QDYmaoABOQYGJgQFMFtHB4AwC/khPnAAAAAAAAAAAIAAgAEAAYAIoAxADkARB4nIWRz2rbQBDGZ3azEo3+4UqyICkmkay6F4tYilxKgi0sQlKbGgpto+TQSwghUEIhPheTltBLnkA5uL41l76C3iHHXvoMpbQnKx1Bc+7A7nzD/tj9ZhYQ7oMBPGPwv5pVcgn4GazDEAAjHWXU0XMftzDAVhR2+2g2MOqE3aemQ8K3JNlrBSjraCAPiJRk7gUYb/ZYFNadHkZhg9ns+zchY3ktNFnWRJmjJG41iz95t2RqqslfrYnaMvpN57YvLEV5yJ+/pwPN5IOfTtPfPU5GF657MUqOd308kyQsvwoKzOgaQ/1SflQNQ0U7eaD86mTuh2UFUVd+42dVN9Tyj5t1+kc7/qHrHvo7R33g8AaQ3/DXpBzwqEtTcKxcWjrz3IBV3s2wblsS9R1vdtnbeTmfI2TX52l6nh/cZ3N1xaKFL7AC2E06ybODfDIYTIjJJ2n5adW0ViqGXoK7HzTXGSkZFICaXxMoaj5WOSkLnP7b4Y6Q6QKmfFYs1mYsKRZQ0D8lALzgCTwC8OMezTcgrzp5rju2zu11qlkSj6TmeG9v3JRG8curky0+3Tq5WsSNy+H26bjdHp9uDy8bsdRO9zc29tM2/AUaFmatAAAAeJxNjbFOAkEURc+yy6pILC2IxRSWZiNEEgtqEwoaY6gZYLKSkJlkWQp+xw/wG727voJ5mZfzbs6bAR74JaM7GTm3xgNueDLOVS/GhfjdeMg9X8al8m/jERN+NGfFnZKyf6Hjgf4aG+fKn40L8avxkEcWxqVqYzzijSNzZkxhPlP7JFBzVuppNIb6fPSCa+ea1/IbThxIRJzySr+yDs3pkKKbVhr8v+87/6P3Wpm1NmO/7TUH9sq2XNSX7GStdDu30lKKratDDI1vw95tL265S6uUYsUfoUMqGwAAAHicY2BiwA84GRgYmRiYGJkZmBlZGFkZ2RjZ2dJzKgsyDNlL8zINDAzAtKulgQGUhvJNnCC0uSEAUoQNhAABAAH//wAPeJxjYGRgYOABYjEgZmJgBEIOIGYB8xgAA/YAN3icY2BgYGQAgisqM9VA9NVJrC4wGgA46QUZAAA=) format('woff'),
+		url('a21.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '521' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-heartbeat:before {
+  content: "\e900";
+}
+.icon-explore:before {
+  content: "\e901";
+}
+.icon-map:before {
+  content: "\e94b";
+}
+.icon-user:before {
+  content: "\e971";
+}
+
+.btn-area {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  height: 56px;
+  width: 100%;
+}
+
+.btn-area navigator {
+  flex: 1;
+  text-align: center;
+}
+
+navigator.active {
+  background-color: rgba(231, 151, 73, .2);
+}
+
+navigator [class^="icon-"], [class*=" icon-"], navigator .text {
+  color: #555;
+}
+
+navigator.now [class^="icon-"], [class*=" icon-"], navigator.now .text {
+  color: rgba(231, 151, 73, .9);
+}
+
+navigator.now .text {
+  font-size: 36rpx;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  margin-top: 8px;
+}
+
+.text {
+  margin-top: 4px;
+  font-size: 32rpx;
+  transition: .5s all ease;
+}
