@@ -210,5 +210,19 @@ Page({
  	},
  	onReady() {
  		this.mapCtx = wx.createMapContext('map')
- 	}
+ 	},
+  // 后续后台切换回前台时，重新启动信道
+  onShow: function() {
+    if (this.pageReady) {
+      this.connect()
+    }
+  },
+  // 页面卸载时，关闭信道
+  onUnload: function() {
+    this.closeTunnel()
+  },
+  // 页面切换到后台运行时，关闭信道
+  onHide: function() {
+    this.closeTunnel()
+  }
 })

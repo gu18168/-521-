@@ -1,9 +1,5 @@
-<map id="map"
-	longitude="{{position.longitude}}" latitude="{{position.latitude}}" scale="16" show-location wx:if="{{map}}" style="width: {{mapSize.width}}px; height: {{mapSize.height - 56}}px;"
-	controls="{{controls}}" bindcontroltap="controltap">
-</map>
 <view class="btn-area">
-	<navigator hover-class="active" class="now">
+	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">
 		<view class="icon-map"></view>
 		<view class="text">地图</view>
 	</navigator>
@@ -11,7 +7,7 @@
 		<view class="icon-explore"></view>
 		<view class="text">广场</view>
 	</navigator>
-	<navigator hover-class="active" url="/pages/heart/heart" open-type="reLaunch">
+	<navigator hover-class="active" class="now">
 		<view class="icon-heartbeat"></view>
 		<view class="text">表白</view>
 	</navigator>

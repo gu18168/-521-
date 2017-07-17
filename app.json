@@ -3,7 +3,9 @@
     "pages/map/map",
     "pages/moment/moment",
     "pages/login/login",
-    "pages/logs/logs"
+    "pages/explore/explore",
+    "pages/heart/heart",
+    "pages/mine/mine"
   ],
   "window":{
     "backgroundTextStyle":"light",
