@@ -6,7 +6,8 @@ var config = {
     loginUrl: `https://${host}/login`,
     tunnelUrl: `https://${host}/tunnel`,
     momentUrl: `https://${host}/moment`,
-    testUrl: `https://${host}/test`,
+    createUrl: `https://${host}/create`,
+    getUrl: `https://${host}/get`,
     bindUrl: `https://${host}/bind`
   }
 };

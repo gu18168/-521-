@@ -1,4 +1,5 @@
 var app = getApp()
+var Session = require('../../vendor/qcloud-weapp-client-sdk/lib/session');
 
 // 获取腾讯地图对象
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js')
@@ -23,6 +24,15 @@ var url = {
 var position = {
 	longitude: 0,
 	latitude: 0
+}
+
+var message = {
+  top: -100, //初始-100%来完全隐藏
+  distance: 78, //本身位置与动态发布点的距离
+  minute: 5, //步行距离时间
+  disWidth: 187.5, //距离信息单个宽度，单位rpx
+  btnWidth: 150, //按钮单个宽度，单位rpx
+  btnMargin: 18.75 //按钮单个外间距，单位rpx
 }
 
 // 地图控件集合
@@ -72,19 +82,25 @@ var controls = [
   }
 ]
 
+// 地图标记点集合
+var markers = [
+]
+
 var mapSize = {
 	width: 375,
 	height: 603
-};
+}
 
 Page({
 	data: {
 		userInfo: {},
 		map: false,
 		position,
+    message,
 		url,
 		mapSize,
-		controls
+		controls,
+    markers
 	},
 	// 开启信道函数
 	openTunnel() {
@@ -131,16 +147,29 @@ Page({
       	this.tunnel.close();
  	 	}
  	},
+  // 点击相应的控件处理
   controltap(e) {
+    // 定位控件
     if (e.controlId === 0) {
       this.mapCtx.moveToLocation()
     } else if (e.controlId === 1) {
-      // @todo 刷新
+      // 刷新控件
+      qcloud.getMoment(this.data.position.latitude, this.data.position.longitude)
+      this.markerFresh()
     } else if (e.controlId == 2) {
+      // 发表动态控件
       this.closeTunnel()
       wx.navigateTo({
         url: '../moment/moment'
       })
+    }
+  },
+  // 点击特定的标记点
+  markertap(e) {
+    for(let i = 0; i < this.data.markers.length; i++) {
+      if (this.data.markers[i].id === e.markerId) {
+        console.log(this.data.markers[i])
+      }
     }
   },
  	// 初始化地图尺寸
@@ -156,6 +185,13 @@ Page({
     this.data.controls[3].position.left = this.data.mapSize.width * (-0.1)
     this.data.controls[3].position.top = this.data.mapSize.height - 98
  	},
+  // 刷新地图标记点
+  markerFresh() {
+    console.log(app.globalData.mark)
+    this.setData({
+      markers: app.globalData.mark.dataStore
+    })
+  },
  	onLoad() {
  		let that = this;
 
@@ -178,31 +214,34 @@ Page({
   				  rwidth: 750, //设备可用宽度，单位rpx，规定750rpx
   				  rheight: res.windowHeight * 750 / res.windowWidth, //设备可用高度，单位rpx
   				}
-
   				Device.set(device)
   			}
    		})
  		}
 
-    if (this.openTunnel()) {
-      // @todo 请求最近的动态信息
+    // 绑定后才能获取地图以及动态信息
+    if (Session.get().bindType) {
+      // 获得用户定位
+      wx.getLocation({
+        type: 'gcj02',
+        success: (res) => {
+          that.data.position.latitude = res.latitude
+          that.data.position.longitude = res.longitude
+          that.mapInit()
+          if (qcloud.getMoment(res.latitude, res.longitude)) {
+            setTimeout(() => {
+              that.markerFresh()
+            }, 1000)
+          }
+          that.setData({
+            position: that.data.position,
+            map: true,
+            mapSize: that.data.mapSize,
+            controls: that.data.controls
+          })
+        }
+      })
     }
-
- 		// 获得用户定位
- 		wx.getLocation({
- 			type: 'gcj02',
- 			success: (res) => {
- 				that.data.position.latitude = res.latitude
- 				that.data.position.longitude = res.longitude
- 				that.mapInit();
- 				that.setData({
- 					position: that.data.position,
- 					map: true,
- 					mapSize: that.data.mapSize,
- 					controls: that.data.controls
- 				})
- 			}
- 		})
 
  		QQMapSDK = new QQMapWX({
     		key: 'YSEBZ-RLCHU-MCPVC-4YYWU-WQN53-IJFGQ'
@@ -210,11 +249,22 @@ Page({
  	},
  	onReady() {
  		this.mapCtx = wx.createMapContext('map')
+    if (!this.pageReady) {
+      this.pageReady = true
+      this.openTunnel()
+    }
  	},
-  // 后续后台切换回前台时，重新启动信道
+  // 后台切换回前台时，重新启动信道并刷新
   onShow: function() {
     if (this.pageReady) {
-      this.connect()
+      this.openTunnel()
+      if (Session.get().bindType) {
+        if (qcloud.getMoment(this.data.position.latitude, this.data.position.longitude)) {
+          setTimeout(() => {
+            this.markerFresh()
+          }, 1000)
+        }
+      }
     }
   },
   // 页面卸载时，关闭信道

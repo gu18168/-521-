@@ -1,10 +1,14 @@
 var qcloud = require('./vendor/qcloud-weapp-client-sdk/index');
 var config = require('./config');
 
+var marker = require('./utils/marker');
+var markers = new marker.Marker();
+
 App({
   onLaunch: function() {
     qcloud.setLoginUrl(config.service.loginUrl);
-    qcloud.setMomentUrl(config.service.testUrl);
+    qcloud.setMomentUrl(config.service.createUrl);
+    qcloud.setGetMomentUrl(config.service.getUrl);
   },
   onError: function (msg) {
   	console.log(msg)
@@ -26,6 +30,7 @@ App({
   },
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    mark: markers
   }
 })

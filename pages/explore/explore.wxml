@@ -1,3 +1,4 @@
+	<button bindtap="tap" style="height: 50px"></button>
 <view class="btn-area">
 	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">
 		<view class="icon-map"></view>

@@ -18,7 +18,9 @@ var exports = module.exports = {
     Tunnel: Tunnel,
 
     moment: moment.moment,
+    getMoment: moment.getMoment,
     setMomentUrl: moment.setMomentUrl,
+    setGetMomentUrl: moment.setGetMomentUrl,
     MomentError: moment.MomentError,
 };
 
