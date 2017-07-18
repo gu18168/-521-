@@ -1,4 +1,34 @@
-	<button bindtap="tap" style="height: 50px"></button>
+<view class="top-wrapper">
+	<view class="activity-wrapper">
+		<swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#ffffff">
+			<swiper-item class="card-wrapper" wx:for="{{actInfo}}">
+		      <view class="card-item activity" hover-class="actHover" hover-stay-time="1800">
+		        <image src="/img/activity.png" style="width: 200rpx;" mode="widthFix"/>
+		        <view class="signInfo">
+		          <view style="display: flex; flex-direction:row; flex-shrink: 0; justify-content:space-between; align-items:baseline;">
+		            <text class="signTitle">活动</text>
+		            <view>
+		              <text class="actInfo">还剩</text><text class="focus" style="margin: 0 6rpx;">{{item.rest}}</text><text class="actInfo">天</text>
+		            </view>
+		          </view>
+		          <text style="flex-shrink: 1;">{{item.desc}}</text>
+		        </view>
+		        <view class="btn-wrap">
+		          <view class="btn" hover-class="btnHover" bindtap="actMore">
+		            <text>详情</text>
+		          </view>
+		          <view class="btn contact" hover-class="btnHover" bindtap="actSubmit">
+		            <text>报名</text>
+		          </view>
+		        </view>
+		      </view>
+		    </swiper-item>
+		</swiper>
+	</view>
+</view>
+<scroll-view class="moment-wrapper" scoll-x="true">
+	<view class="icon-calendar today"> 今日广场</view>
+</scroll-view>
 <view class="btn-area">
 	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">
 		<view class="icon-map"></view>

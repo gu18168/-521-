@@ -8,7 +8,8 @@ var config = {
     momentUrl: `https://${host}/moment`,
     createUrl: `https://${host}/create`,
     getUrl: `https://${host}/get`,
-    bindUrl: `https://${host}/bind`
+    bindUrl: `https://${host}/bind`,
+    activityUrl: `https://${host}/activity`
   }
 };
 

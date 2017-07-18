@@ -1,0 +1,146 @@
+.btn {
+  height: 66%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  background: #fff;
+  padding: 0 28rpx;
+  color: #333;
+  transition: all .1s ease;
+  justify-content: center;
+}
+
+.btnHover {
+  color: #666;
+  background-color: #f6f9fc;
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+}
+
+.btn.contact {
+  background: #3E8AEE;
+  color: #fff;
+}
+
+.focus {
+  color: #3E8AEE;
+  font-size: 36rpx;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+swiper {
+  height: 310rpx;
+}
+
+.card-item {
+  width: 86%;
+  height: 66%;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+  overflow: hidden;
+  position: relative;
+}
+
+.activity {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.activity image {
+  position: absolute;
+  left: -20%;
+  transition: .5s all cubic-bezier(.19, 1, .22, 1);
+  z-index: 1;
+}
+
+.activity .signInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 22rpx;
+  margin-left: 12%;
+  overflow: hidden;
+  transition: .5s cubic-bezier(.19, 1, .22, 1);
+  will-change: transform;
+  filter: blur(0);
+}
+
+.actHover.activity image {
+  left: 4%;
+}
+
+.actHover.activity .signInfo {
+  opacity: .7;
+  transform: scale(.95);
+  filter: blur(10px);
+}
+
+.activity .signTitle {
+  font-size: 52rpx;
+}
+
+.actInfo {
+  font-size: 24rpx;
+}
+
+.activity .btn-wrap {
+  position: absolute;
+  top: 40%;
+  bottom: 16%;
+  right: 6%;
+  transform: translate(0, 5px) scale(.95);
+  display: none;
+  opacity: 0;
+  transition: .7s cubic-bezier(.19, 1, .22, 1);
+}
+
+.actHover.activity .btn-wrap {
+  display: flex;
+  opacity: 1;
+  transform: translate(0,-7px);
+}
+
+.activity .btn {
+  margin: 0 16rpx;
+  padding: 16rpx 36rpx;
+}
+
+.top-wrapper {
+  z-index: 1;
+  width: 125%;
+  position: fixed;
+  top: 0;
+  left: -12.5%;
+  background: linear-gradient(180deg,#F47F59,#F36778);
+  border-bottom-right-radius: 400px 120rpx;
+  border-bottom-left-radius: 400px 120rpx;
+  box-shadow:0 8px 16px 0 rgba(7,17,27,.2)
+}
+
+.activity-wrapper {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+
+.moment-wrapper {
+  width: 100%;
+  height: 1400rpx;
+  margin-top: 280rpx;
+  background-color: #f3f5f7;
+}
+
+.today {
+  color: #777775;
+  font-size: 34rpx;
+  text-align: center;
+  margin: 54rpx 0;
+}

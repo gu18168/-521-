@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/explore/explore",
     "pages/map/map",
     "pages/login/login",
     "pages/moment/moment",
-    "pages/explore/explore",
     "pages/heart/heart",
     "pages/mine/mine"
   ],
