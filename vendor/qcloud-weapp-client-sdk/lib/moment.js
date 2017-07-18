@@ -45,6 +45,8 @@ var moment = function moment(options) {
       header: header,
       method: options.method,
       data: {
+        uuid: options.uuid,
+        nickname: options.nickname,
         lat: options.lat,
         lng: options.lng,
         title: options.title,

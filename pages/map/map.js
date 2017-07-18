@@ -26,15 +26,6 @@ var position = {
 	latitude: 0
 }
 
-var message = {
-  top: -100, //初始-100%来完全隐藏
-  distance: 78, //本身位置与动态发布点的距离
-  minute: 5, //步行距离时间
-  disWidth: 187.5, //距离信息单个宽度，单位rpx
-  btnWidth: 150, //按钮单个宽度，单位rpx
-  btnMargin: 18.75 //按钮单个外间距，单位rpx
-}
-
 // 地图控件集合
 var controls = [
 	{
@@ -79,6 +70,16 @@ var controls = [
       width: 20,
       height: 50
     }
+  },
+  {
+    id: 4,
+    iconPath: '/img/tip.png',
+    position: {
+      left: 87.5,
+      top: -20,
+      width: 200,
+      height: 20
+    }
   }
 ]
 
@@ -86,6 +87,7 @@ var controls = [
 var markers = [
 ]
 
+// 地图尺寸信息
 var mapSize = {
 	width: 375,
 	height: 603
@@ -96,7 +98,6 @@ Page({
 		userInfo: {},
 		map: false,
 		position,
-    message,
 		url,
 		mapSize,
 		controls,
@@ -134,8 +135,24 @@ Page({
 
     // 监听自定义消息（服务器进行推送）
     tunnel.on('moment', moment => {
-      // @todo 接收到动态的提示
       console.log('收到说话消息：', moment);
+      that.data.controls[4].position.top = 20
+      that.setData({
+        controls: that.data.controls
+      })
+
+      setTimeout(() => {
+        that.data.controls[4].position.top = -20
+        that.setData({
+          controls: that.data.controls
+        })
+      }, 1000)
+
+      wx.vibrateLong({
+        success: function() {
+          console.log('震动')
+        }
+      })
     });
 
     // 打开信道
@@ -166,9 +183,47 @@ Page({
   },
   // 点击特定的标记点
   markertap(e) {
+    popup.showBusy('忙着处理中')
+    let that = this
+    let items = []
     for(let i = 0; i < this.data.markers.length; i++) {
       if (this.data.markers[i].id === e.markerId) {
         console.log(this.data.markers[i])
+        QQMapSDK.calculateDistance({
+          to: [{
+            latitude: this.data.markers[i].latitude,
+            longitude: this.data.markers[i].longitude
+          }],
+          success: function (res) {
+            console.log(res.result.elements[0].distance)
+            items = [
+              '作者：' + that.data.markers[i].nickname.toString(),
+              '内容：' + that.data.markers[i].word.toString(),
+              '地点：' + that.data.markers[i].location.toString(),
+              '距离：' + res.result.elements[0].distance.toString() + '米'
+            ]
+          },
+          fail: function (res) {
+            items = [
+              '作者：' + that.data.markers[i].nickname.toString(),
+              '内容：' + that.data.markers[i].word.toString(),
+              '地点：' + that.data.markers[i].location.toString(),
+              '距离：' + '未知' + '米'
+            ]
+          },
+          complete: function (res) {
+            wx.hideLoading()
+            wx.showActionSheet({
+              itemList: items,
+              success: function(res) {
+                console.log(res)
+              },
+              fail: function(res) {
+                console.log('没有选择任何选项')
+              }
+            })
+          }
+        })
       }
     }
   },
@@ -187,9 +242,23 @@ Page({
  	},
   // 刷新地图标记点
   markerFresh() {
-    console.log(app.globalData.mark)
+    let mark = app.globalData.mark.dataStore
+    // console.log(mark)
+    // 气泡显示，但是气泡没有点击函数，所以暂时不采用
+    // for(let i = 0; i < mark.length; i++) {
+    //   this.data.markers[i] = mark[i]
+    //   this.data.markers[i].callout = {
+    //     content: mark[i].word.toString(),
+    //     color: '#ffffff',
+    //     fontSize: 16,
+    //     borderRadius: 50,
+    //     bgColor: '#E79749',
+    //     padding: 2,
+    //     display: 'BYCLICK'
+    //   }
+    // }
     this.setData({
-      markers: app.globalData.mark.dataStore
+      markers: mark
     })
   },
  	onLoad() {
@@ -219,6 +288,7 @@ Page({
    		})
  		}
 
+      console.log(Session.get())
     // 绑定后才能获取地图以及动态信息
     if (Session.get().bindType) {
       // 获得用户定位

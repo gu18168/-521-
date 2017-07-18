@@ -1,3 +1,5 @@
+var Session = require('../../vendor/qcloud-weapp-client-sdk/lib/session')
+
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index')
 var config = require('../../config')
 
@@ -106,9 +108,12 @@ Page({
 
     setTimeout(() => {
       	if (e.detail.value.textarea && this.tunnel) {
-  			popup.showBusy('马上就好')
+  			  popup.showBusy('马上就好')
+          let session = Session.get()
       		// 服务器存储动态
         	qcloud.moment({
+              'uuid': session.id,
+              'nickname': session.userInfo.nickName,
           		'lat': this.data.position.lat,
           		'lng': this.data.position.lng,
           		'title': this.data.position.title,

@@ -1,44 +1,6 @@
 <map id="map"
 	longitude="{{position.longitude}}" latitude="{{position.latitude}}" scale="18" show-location wx:if="{{map}}" style="width: {{mapSize.width}}px; height: {{mapSize.height - 56}}px;"
 	controls="{{controls}}" markers="{{markers}}" bindcontroltap="controltap" bindmarkertap="markertap">
-	<cover-view class="dropdown">
-	  <cover-view class="message">
-	    <cover-view class="userInfo">
-	      <cover-image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></cover-image>
-	      <cover-view class="userinfo-nickname">{{userInfo.nickName}}</cover-view>
-	    </cover-view>
-	    <cover-view class="messInfo">
-	      <cover-view>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</cover-view>
-	    </cover-view>
-	  </cover-view>
-	  <cover-view class="operation">
-	    <cover-view class="distance" style="width: {{message.disWidth}}rpx;">
-	      <cover-view class="meter">
-	        <cover-view><span class="focus">{{message.distance}}</span> 米</cover-view>
-	      </cover-view>
-	      <cover-view>距离我的位置</cover-view>
-	    </cover-view>
-
-	    <cover-view class="distance" style="width: {{message.disWidth}}rpx;">
-	      <cover-view class="meter">
-	        <cover-view><span class="focus">{{message.minute}}</span> 分钟</cover-view>
-	      </cover-view>
-	      <cover-view>步行可到达</cover-view>
-	    </cover-view>
-
-	    <cover-view class="distance" style="width: {{message.btnWidth}}rpx; margin: 0 {{message.btnMargin}}rpx;">
-	      <cover-view class="btn navigate" hover-class="btnHover">
-	        到这去
-	      </cover-view>
-	    </cover-view>
-
-	    <cover-view class="distance" style="width: {{message.btnWidth}}rpx; margin: 0 {{message.btnMargin}}rpx;">
-	      <cover-view class="btn contact" hover-class="btnHover">
-	        联系TA
-	      </cover-view>
-	    </cover-view>
-	  </cover-view>
-	</cover-view>
 </map>
 <view class="btn-area">
 	<navigator hover-class="active" class="now">
