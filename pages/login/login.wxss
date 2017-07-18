@@ -13,21 +13,17 @@
 .input-section input {
 	font-size: 36rpx;
 	padding: 16rpx;
-	border: 2px solid #d3d5d7;
-	border-bottom: none;
-}
-
-.input-section input:first-of-type {
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
-.input-section input:last-of-type {
-	border-bottom-right-radius: 6px;
-	border-bottom-left-radius: 6px;
-	border-bottom: 2px solid #d3d5d7;
+	border-bottom: 1px solid #ff5000;
 }
 
 .input-section button {
-	margin-top: 36rpx;
+	color: #fff;
+	margin-top: 50rpx;
+	border-radius: 50px;
+	background: -webkit-linear-gradient(left,#ff9000,#ff5000) no-repeat;
+	box-shadow: 0 4px 16px #f7c7b1;
+}
+
+button[disabled] {
+	opacity: 0.3;
 }
