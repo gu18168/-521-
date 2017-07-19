@@ -26,7 +26,7 @@
 		</swiper>
 	</view>
 </view>
-<scroll-view class="moment-wrapper" scroll-y>
+<scroll-view class="content-wrapper" scroll-y>
 	<view class="icon-calendar today"> 今日广场</view>
 	<view class="user-wrapper">
 		<text class="title">活跃用户</text>
@@ -50,6 +50,17 @@
 		    	</view>
 			</view>
 		</scroll-view>
+	</view>
+	<view class="moments-wrapper">
+		<view class="moment-wrapper" wx:for="{{momentsInfo}}">
+			<view class="title-wrapper">
+				<text class="title">{{item.nickname}}</text>
+				<text class="place">{{item.title}}</text>
+			</view>
+			<view class="moment-content-wrapper">
+				{{item.word}}
+			</view>
+		</view>
 	</view>
 </scroll-view>
 <view class="btn-area">

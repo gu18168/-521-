@@ -38,8 +38,9 @@ swiper {
 }
 
 .card-item {
-  width: 86%;
+  width: 100%;
   height: 66%;
+  margin: 0 20rpx;
   padding: 20rpx;
   background-color: #fff;
   border-radius: 4px;
@@ -131,10 +132,10 @@ swiper {
   left: 10%;
 }
 
-.moment-wrapper {
+.content-wrapper {
   width: 100%;
-  height: 1400rpx;
-  margin-top: 280rpx;
+  height: 100%;
+  margin: 280rpx 0 56px;
   background-color: #f3f5f7;
 }
 
@@ -234,6 +235,7 @@ swiper {
   margin: 20rpx 0 20rpx 20rpx;
   font-size: 16px;
   position: relative;
+  overflow: hidden;
 }
 
 .signTitle {
@@ -269,4 +271,42 @@ swiper {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.moments-wrapper {
+	margin: 40rpx 20rpx 20rpx;
+	box-shadow: 0 1px 2px rgba(150,150,150,.2), 0 -1px 2px rgba(150,150,150,.1);
+}
+
+.moment-wrapper {
+	border-radius: 3px;
+  margin-bottom: 20rpx;
+}
+
+.title-wrapper {
+	display: block;
+  background: #fff;
+	position: relative;
+	padding: 20rpx;
+}
+
+.title-wrapper .title {
+	color: #000;
+	font-size: 36rpx;
+	text-align: left;
+}
+
+.title-wrapper .time, .title-wrapper .place {
+	float: right;
+	color: #666;
+	font-size: 32rpx;
+	margin-top: 4rpx;
+	margin-left: 10rpx;
+}
+
+.moment-content-wrapper {
+	padding: 20rpx;
+	background: #FAFAF5;
+	border-top: 1px solid #DCDCDC;
+	border-bottom: 1.5px solid #DCDCDC;
 }

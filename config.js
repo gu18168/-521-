@@ -10,7 +10,8 @@ var config = {
     getUrl: `https://${host}/get`,
     bindUrl: `https://${host}/bind`,
     activityUrl: `https://${host}/activity`,
-    usersUrl: `https://${host}/users`
+    usersUrl: `https://${host}/users`,
+    momentsUrl: `https://${host}/moments`
   }
 };
 
