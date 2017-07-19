@@ -9,7 +9,8 @@ var config = {
     createUrl: `https://${host}/create`,
     getUrl: `https://${host}/get`,
     bindUrl: `https://${host}/bind`,
-    activityUrl: `https://${host}/activity`
+    activityUrl: `https://${host}/activity`,
+    usersUrl: `https://${host}/users`
   }
 };
 

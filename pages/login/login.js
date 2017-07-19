@@ -39,6 +39,8 @@ Page({
 			title: '正在处理中...'
 		})
 
+		let se = Session.get()
+
 		wx.request({
 			url: config.service.bindUrl,
 			header: {},
@@ -46,7 +48,11 @@ Page({
 			data: {
 				username: this.data.username,
 				password: this.data.password,
-				uuid: Session.get().id
+				uuid: se.id,
+				avatar: se.userInfo.avatarUrl,
+				desc: '你好，同学，欢迎来做朋友',
+				nickname: se.userInfo.nickName,
+				gender: se.userInfo.gender
 			},
 
 			success: (result) => {

@@ -26,8 +26,31 @@
 		</swiper>
 	</view>
 </view>
-<scroll-view class="moment-wrapper" scoll-x="true">
+<scroll-view class="moment-wrapper" scroll-y>
 	<view class="icon-calendar today"> 今日广场</view>
+	<view class="user-wrapper">
+		<text class="title">活跃用户</text>
+		<text class="desc">看看今天谁最有趣</text>
+		<scroll-view scroll-x style="white-space: nowrap; padding-top: 10rpx;">
+			<view style="white-space: normal; display: inline-block;" wx:for="{{usersInfo}}">
+				<view class="user-card info">
+			        <view class="userInfo">
+			          	<image class="userinfo-avatar" src="{{item.avatar}}" background-size="cover"></image>
+			        </view>
+			        <view class="signInfo">
+			          	<text class="signTitle">{{item.nickname}}</text>
+			          	<text wx:if="{{item.gender == 0}}">性别:未知</text>
+			          	<text wx:if="{{item.gender == 1}}">性别:男</text>
+			          	<text wx:if="{{item.gender == 2}}">性别:女</text>
+			          	<text>{{item.desc}}</text>
+			        </view>
+			        <view class="first" wx:if="{{index == 0}}"></view>
+			        <view class="second" wx:if="{{index == 1}}"></view>
+			        <view class="third" wx:if="{{index == 2}}"></view>
+		    	</view>
+			</view>
+		</scroll-view>
+	</view>
 </scroll-view>
 <view class="btn-area">
 	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">

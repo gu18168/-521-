@@ -142,5 +142,131 @@ swiper {
   color: #777775;
   font-size: 34rpx;
   text-align: center;
-  margin: 54rpx 0;
+  margin: 54rpx 0 34rpx;
+}
+
+.user-wrapper {
+  margin: 20rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(150,150,150,.3), 0 -1px 2px rgba(150,150,150,.1);
+}
+
+.user-wrapper .title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 200;
+  color: #666;
+}
+
+.user-wrapper .desc {
+  display: block;
+  text-align: center;
+  font-size: 36rpx;
+  margin: 10rpx 0;
+  color: #000;
+}
+
+.user-card {
+  position: relative;
+  width: 600rpx;
+  height: 180rpx;
+  margin: 20rpx 30rpx 20rpx 0;
+  box-shadow: 0 1px 2px rgba(150,150,150,.2), 0 -1px 2px rgba(150,150,150,.1);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.user-card:last-type-of {
+  margin-right: 30rpx;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  height: 200rpx;
+}
+
+.userinfo-avatar {
+  box-sizing: border-box;
+  width: 124rpx;
+  height: 124rpx;
+  margin: 20rpx;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 36rpx;
+}
+
+.userinfo-location {
+  color: #666;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
+.info .userInfo {
+  height: auto;
+}
+
+.info .userinfo-avatar {
+  flex-grow: 1;
+  width: 180rpx;
+  margin: 0;
+}
+
+.info .userinfo-nickname {
+  margin-top: 10rpx;
+}
+
+.signInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  margin: 20rpx 0 20rpx 20rpx;
+  font-size: 16px;
+  position: relative;
+}
+
+.signTitle {
+  font-weight: 800;
+  font-size: 40rpx;
+}
+
+.first {
+  width: 0;
+  height: 0;
+  border-top: 60rpx solid #EE3B3B;
+  border-left: 60rpx solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.second {
+  width: 0;
+  height: 0;
+  border-top: 60rpx solid #EF5D46;
+  border-left: 60rpx solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.third {
+  width: 0;
+  height: 0;
+  border-top: 60rpx solid #EEC900;
+  border-left: 60rpx solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

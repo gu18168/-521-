@@ -115,7 +115,7 @@ var getMoment = function(lat, lng) {
           }
           popup.showSuccess('刷新成功');
         } else {
-          popup.showModel('刷新失败', '可能是附近没有动态');
+          popup.showModel('刷新失败', '可能是附近没有动态，请退出重进试试');
         }
       } else {
         popup.showModel('刷新失败', '出现了一些奇怪的问题');
