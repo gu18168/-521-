@@ -11,7 +11,9 @@ var config = {
     bindUrl: `https://${host}/bind`,
     activityUrl: `https://${host}/activity`,
     usersUrl: `https://${host}/users`,
-    momentsUrl: `https://${host}/moments`
+    momentsUrl: `https://${host}/moments`,
+    realUrl: `https://${host}/real`,
+    berealUrl: `https://${host}/bereal`
   }
 };
 

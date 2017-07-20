@@ -1,3 +1,34 @@
+<view class="top-area">
+	<image src="../../img/title.png"/>
+	<view class="bb-btn" bindtap="Confession">我要表白</view>
+	<view class="toothbg"></view>
+</view>
+<scroll-view scroll-y class="card-area">
+	<view class="bb-card">
+		<view class="bb-content">
+			<text class="bb-title">Dear 凡</text>
+			<view class="bb-word">
+				<text>你还记得吗？记忆的炎夏</text>
+			</view>
+		</view>
+		<view class="bb-guess">
+			<input placeholder="猜猜谁是告白者" />
+			<button>猜</button>
+		</view>
+	</view>
+	<view class="bb-card">
+		<view class="bb-content">
+			<text class="bb-title">Dear 凡</text>
+			<view class="bb-word">
+				<text>世界太小，想带你去看天涯海角</text>
+			</view>
+		</view>
+		<view class="bb-guess">
+			<input placeholder="猜猜谁是告白者" />
+			<button>猜</button>
+		</view>
+	</view>
+</scroll-view>
 <view class="btn-area">
 	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">
 		<view class="icon-map"></view>
@@ -15,4 +46,17 @@
 		<view class="icon-user"></view>
 		<view class="text">我的</view>
 	</navigator>
+</view>
+<view class="model-bg" wx:if="{{beReal}}">
+	<view class="model-wrapper">
+		<view class="model-title">请先绑定</view>
+		<view class="model-content">
+			<input placeholder="真实姓名" bindchange="changeRealname"/>
+			<input placeholder="学校/学院" bindchange="changeSchool"/>
+		</view>
+		<view class="model-btn">
+			<text class="model-confirm" bindtap="tobeReal">确定</text>
+			<text bindtap="cancel">取消</text>
+		</view>
+	</view>
 </view>

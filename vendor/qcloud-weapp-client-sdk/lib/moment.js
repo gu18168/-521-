@@ -104,7 +104,6 @@ var getMoment = function(lat, lng) {
 
       if (data && data[constants.WX_SESSION_MAGIC_ID]) {
         if (data.res) {
-          // @todo 查询成功后
           let app = getApp();
           app.globalData.mark.clear();
           for (let i = data.res.length - 1; i >= 0; i--) {

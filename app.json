@@ -1,10 +1,10 @@
 {
   "pages":[
+    "pages/heart/heart",
     "pages/explore/explore",
   	"pages/map/map",
     "pages/login/login",
     "pages/moment/moment",
-    "pages/heart/heart",
     "pages/mine/mine"
   ],
   "window":{

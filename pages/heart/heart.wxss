@@ -1,0 +1,153 @@
+.top-area {
+	position: relative;
+	width: 100%;
+	height: 400rpx;
+	background: linear-gradient(180deg,#E2455F,#ff69b4);
+}
+
+.top-area image {
+	width: 600rpx;
+	height: 300rpx;
+	margin: -20rpx 75rpx 0;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.bb-btn {
+	color: #E2455F;
+	font-weight: 700;
+	font-size: 60rpx;
+	letter-spacing: -2px;
+	width: 300rpx;
+	height: 70rpx;
+	text-align: center;
+	margin: 20rpx auto;
+	background-color: #FBF9C7;
+	border: 2px solid #F8B5BD;
+	border-radius: 35px;
+}
+
+.toothbg{
+	position: absolute;
+	bottom: -78rpx;
+	margin: auto;
+	width: 100%;
+	height: 80rpx;
+	background: radial-gradient(circle at 50% 50%, #ff69b4 0, #ff69b4 50%, transparent 0);
+	background-repeat: repeat-x;
+	background-color: transparent;
+	background-size: 80rpx 160rpx;
+	background-position: 80rpx -80rpx;
+}
+
+.card-area {
+	width: 100%;
+	height: 100%;
+	background-color: #ECECEC;
+	padding: 50rpx 0 56px;
+}
+
+.bb-card {
+	width: 90%;
+	height: 300rpx;
+	margin: 30rpx auto;
+	background-color: #fff;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(150,150,150,.3), 0 -1px 2px rgba(150,150,150,.1);
+}
+
+.bb-card .bb-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 220rpx;
+	background-color: #ffa07a;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+
+.bb-content .bb-title {
+	position: absolute;
+	width: 100%;
+	color: #fff;
+	font-size: 30rpx;
+	text-align: center;
+	padding: 10rpx 0;
+}
+
+.bb-content .bb-word {
+	flex: 1;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.bb-card .bb-guess {
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
+	width: 100%;
+	height: 80rpx;
+	padding: 10rpx;
+}
+
+.bb-guess input {
+	flex: 1;
+	height: 60rpx;
+	padding-left: 10rpx;
+	font-size: 32rpx;
+	border: 1px solid #f3f5f7;
+}
+
+.bb-guess button {
+	margin-left: 10rpx;
+	font-size: 32rpx;
+	line-height: 60rpx;
+}
+
+.model-bg {
+	z-index: 10;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.model-wrapper {
+	background-color: #fff;
+	box-sizing: border-box;
+	width: 580rpx;
+	border-radius: 3px;
+	padding: 40rpx;
+}
+
+.model-wrapper .model-title {
+	color: #000;
+	font-weight: 700;
+}
+
+.model-wrapper .model-content input {
+	font-size: 32rpx;
+	margin: 20rpx 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.model-wrapper .model-btn {
+	margin-top: 20rpx;
+}
+
+.model-wrapper .model-btn text{
+	float: right;
+	margin-left: 50rpx;
+}
+
+.model-confirm {
+	color: #61BF4A;
+}
