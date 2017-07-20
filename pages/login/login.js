@@ -62,7 +62,6 @@ Page({
 
 		        if (data && data[constants.WX_SESSION_MAGIC_ID]) {
 		          if (data.session && data.session.userId) {
-		            // @todo 成功登录
 		            popup.showSuccess('绑定成功')
 
 		            let session = Session.get()
@@ -72,11 +71,9 @@ Page({
 		    			delta: 1
         			})
 		          } else {
-		            // @todo 失败登录
 		            popup.showModel('绑定失败', '该账号已被绑定')
 		          }
 		        } else {
-		          // @todo 无响应登录
 		          popup.showModel('绑定失败', '出现某种未知的错误')
 		        }
 			},

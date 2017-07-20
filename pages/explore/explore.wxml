@@ -62,6 +62,11 @@
 			</view>
 		</view>
 	</view>
+	<view class="bottom">
+	    <view class="line"></view>
+		<view class="text">就先看到这吧</view>
+		<view class="line"></view>
+	</view>
 </scroll-view>
 <view class="btn-area">
 	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">

@@ -1,6 +1,7 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index')
 var config = require('../../config')
 var constants = require('../../vendor/qcloud-weapp-client-sdk/lib/constants')
+var popup = require('../../utils/popup.js')
 
 // 活动基本信息
 var actInfo = []
@@ -33,22 +34,27 @@ Page({
 
 		      if (data && data[constants.WX_SESSION_MAGIC_ID]) {
 		        if (data.res) {
-		          // @todo 查询成功后
-		          // console.log(data.res)
 		          that.setData({
 		          	actInfo: data.res
 		          })
-		          // console.log(that.data.actInfo)
 		        } else {
-		          console.log('zaza1')
+		          let act = [
+		          	{
+		          		rest: '0',
+		          		desc: '最近暂无活动'
+		          	}
+		          ]
+		          that.setData({
+		          	actInfo: act
+		          })
 		        }
 		      } else {
-		        console.log('zaza2')
+		        popup.showModel('活动刷新失败', '出现某种未知的错误')
 		      }
 		    },
 
 		    fail: function () {
-		      console.log('zaza3')
+		      popup.showModel('活动刷新失败', '可能是网络错误或者服务器发生异常')
 		    },
 		})
 
@@ -63,22 +69,17 @@ Page({
 
 		      if (data && data[constants.WX_SESSION_MAGIC_ID]) {
 		        if (data.res) {
-		          // @todo 查询成功后
-		          // console.log(data.res)
 		          that.setData({
 		          	usersInfo: data.res
 		          })
-		          // console.log(that.data.usersInfo)
-		        } else {
-		          // console.log('caca1')
 		        }
 		      } else {
-		        // console.log('caca2')
+		        popup.showModel('用户刷新失败', '出现某种未知的错误')
 		      }
 		    },
 
 		    fail: function () {
-		      // console.log('caca3')
+		       popup.showModel('用户刷新失败', '可能是网络错误或者服务器发生异常')
 		    }
 		})
 
@@ -93,22 +94,17 @@ Page({
 
 		      if (data && data[constants.WX_SESSION_MAGIC_ID]) {
 		        if (data.res) {
-		          // @todo 查询成功后
-		          console.log(data.res)
 		          that.setData({
 		          	momentsInfo: data.res
 		          })
-		          console.log(that.data.momentsInfo)
-		        } else {
-		          console.log('caca1')
 		        }
 		      } else {
-		        console.log('caca2')
+		        popup.showModel('动态刷新失败', '出现某种未知的错误')
 		      }
 		    },
 
 		    fail: function () {
-		      console.log('caca3')
+		      popup.showModel('动态刷新失败', '可能是网络错误或者服务器发生异常')
 		    }
 		})
   	}
