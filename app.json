@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/heart/heart",
+    "pages/confession/confession",
     "pages/explore/explore",
   	"pages/map/map",
     "pages/login/login",

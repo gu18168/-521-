@@ -47,6 +47,7 @@
 }
 
 .bb-card {
+	position: relative;
 	width: 90%;
 	height: 300rpx;
 	margin: 30rpx auto;
@@ -93,6 +94,10 @@
 	padding: 10rpx;
 }
 
+.bb-guess form {
+	width: 100%;
+}
+
 .bb-guess input {
 	flex: 1;
 	height: 60rpx;
@@ -105,6 +110,16 @@
 	margin-left: 10rpx;
 	font-size: 32rpx;
 	line-height: 60rpx;
+}
+
+.bb-guess form input {
+	width: 82%;
+}
+
+.bb-guess form button {
+	position: absolute;
+	bottom: 10rpx;
+	right: 10rpx;
 }
 
 .model-bg {

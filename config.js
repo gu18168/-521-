@@ -13,7 +13,9 @@ var config = {
     usersUrl: `https://${host}/users`,
     momentsUrl: `https://${host}/moments`,
     realUrl: `https://${host}/real`,
-    berealUrl: `https://${host}/bereal`
+    berealUrl: `https://${host}/bereal`,
+    confessionUrl: `https://${host}/confession`,
+    confessionsUrl: `https://${host}/confessions`
   }
 };
 

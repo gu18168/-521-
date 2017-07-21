@@ -4,28 +4,18 @@
 	<view class="toothbg"></view>
 </view>
 <scroll-view scroll-y class="card-area">
-	<view class="bb-card">
-		<view class="bb-content">
-			<text class="bb-title">Dear 凡</text>
+	<view class="bb-card" wx:for="{{confessions}}">
+		<view class="bb-content" style="background-color: {{item.background}}">
+			<text class="bb-title">Dear {{item.reader}}</text>
 			<view class="bb-word">
-				<text>你还记得吗？记忆的炎夏</text>
+				<text>{{item.content}}</text>
 			</view>
 		</view>
 		<view class="bb-guess">
-			<input placeholder="猜猜谁是告白者" />
-			<button>猜</button>
-		</view>
-	</view>
-	<view class="bb-card">
-		<view class="bb-content">
-			<text class="bb-title">Dear 凡</text>
-			<view class="bb-word">
-				<text>世界太小，想带你去看天涯海角</text>
-			</view>
-		</view>
-		<view class="bb-guess">
-			<input placeholder="猜猜谁是告白者" />
-			<button>猜</button>
+			<form bindsubmit="guess">
+				<input placeholder="猜猜谁是告白者" name="input" />
+				<button data-author="{{item.author}}" form-type="submit">猜</button>
+			</form>
 		</view>
 	</view>
 </scroll-view>

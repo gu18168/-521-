@@ -58,8 +58,6 @@ Page({
 			success: (result) => {
 				var data = result.data;
 
-				console.log(data);
-
 		        if (data && data[constants.WX_SESSION_MAGIC_ID]) {
 		          if (data.session && data.session.userId) {
 		            popup.showSuccess('绑定成功')
@@ -78,7 +76,7 @@ Page({
 		        }
 			},
 
-			fail: function (momentResponseError) {
+			fail: function () {
 		        popup.showModel('绑定失败', '可能是网络错误或者服务器发生异常')
 		    },
 
