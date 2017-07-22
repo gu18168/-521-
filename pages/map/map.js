@@ -188,42 +188,33 @@ Page({
 	    let items = []
 	    for(let i = 0; i < this.data.markers.length; i++) {
 	      if (this.data.markers[i].id === e.markerId) {
-	        console.log(this.data.markers[i])
-	        QQMapSDK.calculateDistance({
-	          to: [{
-	            latitude: this.data.markers[i].latitude,
-	            longitude: this.data.markers[i].longitude
-	          }],
-	          success: function (res) {
-	            console.log(res.result.elements[0].distance)
-	            items = [
-	              '作者：' + that.data.markers[i].nickname.toString(),
-	              '内容：' + that.data.markers[i].word.toString(),
-	              '地点：' + that.data.markers[i].location.toString(),
-	              '距离：' + res.result.elements[0].distance.toString() + '米'
-	            ]
-	          },
-	          fail: function (res) {
-	            items = [
-	              '作者：' + that.data.markers[i].nickname.toString(),
-	              '内容：' + that.data.markers[i].word.toString(),
-	              '地点：' + that.data.markers[i].location.toString(),
-	              '距离：' + '未知' + '米'
-	            ]
-	          },
-	          complete: function (res) {
-	            wx.hideLoading()
-	            wx.showActionSheet({
-	              itemList: items,
-	              success: function(res) {
-	                console.log(res)
-	              },
-	              fail: function(res) {
-	                console.log('没有选择任何选项')
-	              }
-	            })
-	          }
-	        })
+	      	let items = [
+	      		'作者:' + this.data.markers[i].nickname.toString(),
+	      		'内容:' + this.data.markers[i].word.toString(),
+	      		'地点:' + this.data.markers[i].location.toString(),
+	      		'开启导航，带我去'
+	      	]
+	      	wx.showActionSheet({
+	      		itemList: items,
+	      		success: function(res) {
+	      			console.log(res)
+	      			if (res.tapIndex === 3) {
+	      				wx.openLocation({
+	      					latitude: that.data.markers[i].latitude,
+	      					longitude: that.data.markers[i].longitude,
+	      					name: that.data.markers[i].location.toString(),
+	      					address: that.data.markers[i].nickname.toString() + ": " + that.data.markers[i].word.toString(),
+	      					scale: 28
+	      				})
+	      			}
+	      		},
+	      		fail: function(res) {
+	      			console.log('没有选择任何选项')
+	      		},
+	      		complete: function() {
+	      			wx.hideLoading()
+	      		}
+	      	})
 	      }
 	    }
 	},

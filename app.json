@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/map/map",
     "pages/heart/heart",
     "pages/confession/confession",
     "pages/explore/explore",
-  	"pages/map/map",
     "pages/login/login",
-    "pages/moment/moment",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/moment/moment"
   ],
   "window":{
     "backgroundTextStyle":"light",

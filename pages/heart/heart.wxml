@@ -32,10 +32,10 @@
 		<view class="icon-heartbeat"></view>
 		<view class="text">表白</view>
 	</navigator>
-	<navigator hover-class="active" url="/pages/mine/mine" open-type="reLaunch">
+<!-- 	<navigator hover-class="active" url="/pages/mine/mine" open-type="reLaunch">
 		<view class="icon-user"></view>
 		<view class="text">我的</view>
-	</navigator>
+	</navigator> -->
 </view>
 <view class="model-bg" wx:if="{{beReal}}">
 	<view class="model-wrapper">
