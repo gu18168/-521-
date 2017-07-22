@@ -1,19 +1,12 @@
+var Session = require('../../vendor/qcloud-weapp-client-sdk/lib/session')
+
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index')
 var config = require('../../config')
 
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js')
-var qqmapsdk
+var QQMapSDK
 
-// 显示失败提示
-var showModel = (title, content) => {
-    wx.hideToast();
-
-    wx.showModal({
-        title,
-        content: JSON.stringify(content),
-        showCancel: false
-    });
-};
+var popup = require('../../utils/popup.js')
 
 var position = {
   lat: 0,
@@ -24,8 +17,7 @@ var position = {
 Page({
 
   data: {
-    inputContent: '',
-    position,
+    position
   },
 
   connect: function() {
@@ -43,10 +35,6 @@ Page({
       console.error('信道发生错误：', error);
     })
 
-    tunnel.on('moment', moment => {
-      console.log('收到说话消息：', moment);
-    })
-
     tunnel.open();
   },
 
@@ -57,7 +45,7 @@ Page({
   },
 
   onLoad: function() {
-    qqmapsdk = new QQMapWX({
+    QQMapSDK = new QQMapWX({
       key: 'YSEBZ-RLCHU-MCPVC-4YYWU-WQN53-IJFGQ'
     })
   },
@@ -73,7 +61,7 @@ Page({
       this.connect()
     }
 
-    qqmapsdk.reverseGeocoder({
+    QQMapSDK.reverseGeocoder({
       success: function(res) {
 
         that.data.position.lat = res.result.location.lat
@@ -84,12 +72,9 @@ Page({
         that.setData({
           position: that.data.position
         })
-
-        // console.log(res);
-        // console.log(res.result.address_reference.landmark_l2.title);
       },
       fail: function(res) {
-        console.log(res);
+        popup.showModel('定位失败', '定位失败，请检查一下你的网络')
       }
     })
   },
@@ -101,46 +86,48 @@ Page({
     }
   },
 
-  // 页面卸载时，退出聊天室
+  // 页面卸载时，关闭信道
   onUnload: function() {
     this.closeTunnel()
   },
 
-  // 页面切换到后台运行时，退出聊天室
+  // 页面切换到后台运行时，关闭信道
   onHide: function() {
     this.closeTunnel()
   },
 
-  changeInputContent: function(e) {
-    this.setData({
-      inputContent: e.detail.value
-    })
-  },
-
-  sendMessage: function(e) {
+  Submit: function(e) {
     if (!this.tunnel || !this.tunnel.isActive()) {
-      console.log("信道还未开启")
+      popup.showModel('稍等一下', '服务器正在加紧赶来')
 
       if (this.tunnel.isClosed()) {
         this.connect()
       }
-
       return
     }
 
     setTimeout(() => {
-      if (this.data.inputContent && this.tunnel) {
-        qcloud.moment({
-          'lat': this.data.position.lat,
-          'lng': this.data.position.lng,
-          'title': this.data.position.title,
-          'word': this.data.inputContent
-        });
-        this.tunnel.emit('moment', {'word': this.data.inputContent, 'where': this.data.position})
-        this.setData({ inputContent: ''})
-
-      }
+      	if (e.detail.value.textarea && this.tunnel) {
+  			  popup.showBusy('马上就好')
+          let session = Session.get()
+      		// 服务器存储动态
+        	qcloud.moment({
+              'uuid': session.id,
+              'nickname': session.userInfo.nickName,
+          		'lat': this.data.position.lat,
+          		'lng': this.data.position.lng,
+          		'title': this.data.position.title,
+          		'word': e.detail.value.textarea
+        	});
+        	// 通知在线用户动态出现
+        	this.tunnel.emit('moment', {'word': e.detail.value.textarea, 'where': this.data.position})
+        	popup.showSuccess('动态已面世')
+        	wx.navigateBack({
+        		delta: 1
+        	})
+      	} else {
+      		popup.showModel('出现问题了', '输入内容不可为空')
+      	}
     })
   }
-
 })

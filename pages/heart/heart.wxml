@@ -1,0 +1,52 @@
+<view class="top-area">
+	<image src="../../img/title.png"/>
+	<view class="bb-btn" bindtap="Confession">我要表白</view>
+	<view class="toothbg"></view>
+</view>
+<scroll-view scroll-y class="card-area">
+	<view class="bb-card" wx:for="{{confessions}}">
+		<view class="bb-content" style="background-color: {{item.background}}">
+			<text class="bb-title">Dear {{item.reader}}</text>
+			<view class="bb-word">
+				<text>{{item.content}}</text>
+			</view>
+		</view>
+		<view class="bb-guess">
+			<form bindsubmit="guess">
+				<input placeholder="猜猜谁是告白者" name="input" />
+				<button data-author="{{item.author}}" form-type="submit">猜</button>
+			</form>
+		</view>
+	</view>
+</scroll-view>
+<view class="btn-area">
+	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">
+		<view class="icon-map"></view>
+		<view class="text">地图</view>
+	</navigator>
+	<navigator hover-class="active" url="/pages/explore/explore" open-type="reLaunch">
+		<view class="icon-explore"></view>
+		<view class="text">广场</view>
+	</navigator>
+	<navigator hover-class="active" class="now">
+		<view class="icon-heartbeat"></view>
+		<view class="text">表白</view>
+	</navigator>
+<!-- 	<navigator hover-class="active" url="/pages/mine/mine" open-type="reLaunch">
+		<view class="icon-user"></view>
+		<view class="text">我的</view>
+	</navigator> -->
+</view>
+<view class="model-bg" wx:if="{{beReal}}">
+	<view class="model-wrapper">
+		<view class="model-title">请先绑定</view>
+		<view class="model-content">
+			<input placeholder="真实姓名" bindchange="changeRealname"/>
+			<input placeholder="学校/学院" bindchange="changeSchool"/>
+		</view>
+		<view class="model-btn">
+			<text class="model-confirm" bindtap="tobeReal">确定</text>
+			<text bindtap="cancel">取消</text>
+		</view>
+	</view>
+</view>

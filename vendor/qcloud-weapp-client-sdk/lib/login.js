@@ -2,6 +2,8 @@ var utils = require('./utils');
 var constants = require('./constants');
 var Session = require('./session');
 
+var popup = require('../../../utils/popup.js');
+
 /***
  * @class
  * 表示登录过程中发生的异常
@@ -82,7 +84,7 @@ var login = function login(options) {
             options.fail(wxLoginError);
             return;
         }
-        
+
         var userInfo = wxLoginResult.userInfo;
 
         // 构造请求头，包含 code、encryptedData 和 iv
@@ -110,6 +112,7 @@ var login = function login(options) {
                     if (data.session) {
                         data.session.userInfo = userInfo;
                         Session.set(data.session);
+                        bind(Session.get());
                         options.success(userInfo);
                     } else {
                         var errorMessage = '登录失败(' + data.error + ')：' + (data.message || '未知错误');
@@ -133,20 +136,42 @@ var login = function login(options) {
         });
     });
 
+    var bind = function(session) {
+        if (!session.bindType) {
+            if (session.loginType === 'UPDATE_SESSION') {
+                popup.showModel('需要绑定', '徘徊这么久了，进来看看吧', () => {
+                    wx.navigateTo({
+                        url: '../login/login'
+                    })
+                })
+            } else if (session.loginType === 'NEW_SESSION') {
+                popup.showModel('需要绑定', '第一次来别见外！', () => {
+                    wx.navigateTo({
+                        url: '../login/login'
+                    })
+                })
+            }
+        }
+    };
+
     var session = Session.get();
     if (session) {
-        wx.checkSession({
-            success: function () {
-                options.success(session.userInfo);
-            },
+        if (session.bindType) {
+            wx.checkSession({
+              success: function () {
+                  options.success(session.userInfo);
+              },
 
-            fail: function () {
-                Session.clear();
-                doLogin();
-            },
-        });
+              fail: function () {
+                 Session.clear();
+                 doLogin();
+              },
+            });
+        } else {
+            bind(session);
+        }
     } else {
-        doLogin();
+        doLogin()
     }
 };
 

@@ -1,0 +1,6 @@
+<image src="../../img/logo.jpg" style="height: 236rpx; width: 240rpx; margin: 40rpx 0 40rpx 255rpx;"></image>
+<view class="input-section">
+	<input placeholder="学号/邮箱" focus value="{{username}}" bindchange="changeUsername"/>
+	<input placeholder="密码" password value="{{password}}" bindchange="changePassword" style="margin-top: 40rpx;"/>
+	<button type="primary" disabled="{{disabled}}" bindtap="login">登录</button>
+</view>

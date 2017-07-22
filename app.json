@@ -1,12 +1,16 @@
 {
   "pages":[
     "pages/map/map",
-    "pages/moment/moment",
-    "pages/logs/logs"
+    "pages/heart/heart",
+    "pages/confession/confession",
+    "pages/explore/explore",
+    "pages/login/login",
+    "pages/mine/mine",
+    "pages/moment/moment"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#3E8AEE",
+    "navigationBarBackgroundColor": "#E79749",
     "navigationBarTitleText": "青春521",
     "navigationBarTextStyle":"#fff"
   }

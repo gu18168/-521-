@@ -1,4 +1,10 @@
-<view class="input-panel">
-  <input type="text" value="{{inputContent}}" bindchange="changeInputContent" class="send-input"></input>
-  <button bindtap="sendMessage" class="send-btn">发送</button>
+<view class="wrapper">
+	<view class="title">告诉大家什么</view>
+	<view class="tips">无论<span>何时何地</span></view>
+	<view class="tips">告诉我们那些<span>身边趣事</span></view>
+	<view class="tips last">发送动态吧:</view>
+	<form bindsubmit="Submit">
+		<textarea placeholder="你的动态 //140字以内" maxlength="140" name="textarea"></textarea>
+		<button form-type="submit">提交</button>
+	</form>
 </view>

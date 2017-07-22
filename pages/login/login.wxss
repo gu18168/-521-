@@ -1,0 +1,29 @@
+.title {
+	color: #E79749;
+	font-size: 54rpx;
+	font-weight: 700;
+	text-align: center;
+	margin: 60rpx 0 50rpx;
+}
+
+.input-section {
+	margin: 10rpx 40rpx;
+}
+
+.input-section input {
+	font-size: 36rpx;
+	padding: 16rpx;
+	border-bottom: 1px solid #ff5000;
+}
+
+.input-section button {
+	color: #fff;
+	margin-top: 50rpx;
+	border-radius: 50px;
+	background: -webkit-linear-gradient(left,#ff9000,#ff5000) no-repeat;
+	box-shadow: 0 4px 16px #f7c7b1;
+}
+
+button[disabled] {
+	opacity: 0.3;
+}

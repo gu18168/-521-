@@ -1,0 +1,333 @@
+.btn {
+  height: 66%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  background: #fff;
+  padding: 0 28rpx;
+  color: #333;
+  transition: all .1s ease;
+  justify-content: center;
+}
+
+.btnHover {
+  color: #666;
+  background-color: #f6f9fc;
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+}
+
+.btn.contact {
+  background: #3E8AEE;
+  color: #fff;
+}
+
+.focus {
+  color: #3E8AEE;
+  font-size: 36rpx;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+swiper {
+  height: 310rpx;
+}
+
+.card-item {
+  width: 100%;
+  height: 66%;
+  margin: 0 20rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+  overflow: hidden;
+  position: relative;
+}
+
+.activity {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.activity image {
+  position: absolute;
+  left: -20%;
+  transition: .5s all cubic-bezier(.19, 1, .22, 1);
+  z-index: 1;
+}
+
+.activity .signInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 22rpx;
+  margin-left: 12%;
+  overflow: hidden;
+  transition: .5s cubic-bezier(.19, 1, .22, 1);
+  will-change: transform;
+  filter: blur(0);
+}
+
+.actHover.activity image {
+  left: 4%;
+}
+
+.actHover.activity .signInfo {
+  opacity: .7;
+  transform: scale(.95);
+  filter: blur(10px);
+}
+
+.activity .signTitle {
+  font-size: 52rpx;
+}
+
+.actInfo {
+  font-size: 24rpx;
+}
+
+.activity .btn-wrap {
+  position: absolute;
+  top: 40%;
+  bottom: 16%;
+  right: 6%;
+  transform: translate(0, 5px) scale(.95);
+  display: none;
+  opacity: 0;
+  transition: .7s cubic-bezier(.19, 1, .22, 1);
+}
+
+.actHover.activity .btn-wrap {
+  display: flex;
+  opacity: 1;
+  transform: translate(0,-7px);
+}
+
+.activity .btn {
+  margin: 0 16rpx;
+  padding: 16rpx 36rpx;
+}
+
+.top-wrapper {
+  z-index: 1;
+  width: 125%;
+  position: fixed;
+  top: 0;
+  left: -12.5%;
+  background: linear-gradient(180deg,#F47F59,#F36778);
+  border-bottom-right-radius: 400px 120rpx;
+  border-bottom-left-radius: 400px 120rpx;
+  box-shadow:0 8px 16px 0 rgba(7,17,27,.2)
+}
+
+.activity-wrapper {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 280rpx 0 56px;
+  background-color: #f3f5f7;
+}
+
+.today {
+  color: #777775;
+  font-size: 34rpx;
+  text-align: center;
+  margin: 54rpx 0 34rpx;
+}
+
+.user-wrapper {
+  margin: 20rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(150,150,150,.3), 0 -1px 2px rgba(150,150,150,.1);
+}
+
+.user-wrapper .title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 200;
+  color: #666;
+}
+
+.user-wrapper .desc {
+  display: block;
+  text-align: center;
+  font-size: 36rpx;
+  margin: 10rpx 0;
+  color: #000;
+}
+
+.user-card {
+  position: relative;
+  width: 600rpx;
+  height: 180rpx;
+  margin: 20rpx 30rpx 20rpx 0;
+  box-shadow: 0 1px 2px rgba(150,150,150,.2), 0 -1px 2px rgba(150,150,150,.1);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.user-card:last-type-of {
+  margin-right: 30rpx;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  height: 200rpx;
+}
+
+.userinfo-avatar {
+  box-sizing: border-box;
+  width: 124rpx;
+  height: 124rpx;
+  margin: 20rpx;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 36rpx;
+}
+
+.userinfo-location {
+  color: #666;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
+.info .userInfo {
+  height: auto;
+}
+
+.info .userinfo-avatar {
+  flex-grow: 1;
+  width: 180rpx;
+  margin: 0;
+}
+
+.info .userinfo-nickname {
+  margin-top: 10rpx;
+}
+
+.signInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  margin: 20rpx 0 20rpx 20rpx;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signTitle {
+  font-weight: 800;
+  font-size: 40rpx;
+}
+
+.first {
+  width: 0;
+  height: 0;
+  border-top: 60rpx solid #EE3B3B;
+  border-left: 60rpx solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.second {
+  width: 0;
+  height: 0;
+  border-top: 60rpx solid #EF5D46;
+  border-left: 60rpx solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.third {
+  width: 0;
+  height: 0;
+  border-top: 60rpx solid #EEC900;
+  border-left: 60rpx solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.moments-wrapper {
+	margin: 40rpx 20rpx 20rpx;
+	box-shadow: 0 1px 2px rgba(150,150,150,.2), 0 -1px 2px rgba(150,150,150,.1);
+}
+
+.moment-wrapper {
+	border-radius: 3px;
+  margin-bottom: 20rpx;
+}
+
+.title-wrapper {
+	display: block;
+  background: #fff;
+	position: relative;
+	padding: 20rpx;
+}
+
+.title-wrapper .title {
+	color: #000;
+	font-size: 36rpx;
+	text-align: left;
+}
+
+.title-wrapper .time, .title-wrapper .place {
+	float: right;
+	color: #666;
+	font-size: 32rpx;
+	margin-top: 4rpx;
+	margin-left: 10rpx;
+}
+
+.moment-content-wrapper {
+	padding: 20rpx;
+	background: #FAFAF5;
+	border-top: 1px solid #DCDCDC;
+	border-bottom: 1.5px solid #DCDCDC;
+}
+
+.bottom {
+  display: flex;
+  width: 50%;
+  margin: 20rpx auto;
+  text-align: center;
+}
+
+.bottom .line {
+  flex: 1;
+  position: relative;
+  top: -15rpx;
+  border-bottom: 1px solid #999;
+}
+
+.bottom .text {
+  color: #999;
+  font-size: 30rpx;
+  padding: 0 10rpx;
+}

@@ -1,0 +1,88 @@
+<view class="top-wrapper">
+	<view class="activity-wrapper">
+		<swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#ffffff">
+			<swiper-item class="card-wrapper" wx:for="{{actInfo}}">
+		      <view class="card-item activity" hover-class="actHover" hover-stay-time="1800">
+		        <image src="/img/activity.png" style="width: 200rpx;" mode="widthFix"/>
+		        <view class="signInfo">
+		          <view style="display: flex; flex-direction:row; flex-shrink: 0; justify-content:space-between; align-items:baseline;">
+		            <text class="signTitle">活动</text>
+		            <view>
+		              <text class="actInfo">还剩</text><text class="focus" style="margin: 0 6rpx;">{{item.rest}}</text><text class="actInfo">天</text>
+		            </view>
+		          </view>
+		          <text style="flex-shrink: 1;">{{item.desc}}</text>
+		        </view>
+		        <view class="btn-wrap">
+		          <view class="btn" hover-class="btnHover" bindtap="actMore">
+		            <text>详情</text>
+		          </view>
+		          <view class="btn contact" hover-class="btnHover" bindtap="actSubmit">
+		            <text>报名</text>
+		          </view>
+		        </view>
+		      </view>
+		    </swiper-item>
+		</swiper>
+	</view>
+</view>
+<scroll-view class="content-wrapper" scroll-y>
+	<view class="icon-calendar today"> 今日广场</view>
+	<view class="user-wrapper">
+		<text class="title">活跃用户</text>
+		<text class="desc">看看今天谁最有趣</text>
+		<scroll-view scroll-x style="white-space: nowrap; padding-top: 10rpx;">
+			<view style="white-space: normal; display: inline-block;" wx:for="{{usersInfo}}">
+				<view class="user-card info">
+			        <view class="userInfo">
+			          	<image class="userinfo-avatar" src="{{item.avatar}}" background-size="cover"></image>
+			        </view>
+			        <view class="signInfo">
+			          	<text class="signTitle">{{item.nickname}}</text>
+			          	<text wx:if="{{item.gender == 0}}">性别:未知</text>
+			          	<text wx:if="{{item.gender == 1}}">性别:男</text>
+			          	<text wx:if="{{item.gender == 2}}">性别:女</text>
+			          	<text>{{item.desc}}</text>
+			        </view>
+			        <view class="first" wx:if="{{index == 0}}"></view>
+			        <view class="second" wx:if="{{index == 1}}"></view>
+			        <view class="third" wx:if="{{index == 2}}"></view>
+		    	</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="moments-wrapper">
+		<view class="moment-wrapper" wx:for="{{momentsInfo}}">
+			<view class="title-wrapper">
+				<text class="title">{{item.nickname}}</text>
+				<text class="place">{{item.title}}</text>
+			</view>
+			<view class="moment-content-wrapper">
+				{{item.word}}
+			</view>
+		</view>
+	</view>
+	<view class="bottom">
+	    <view class="line"></view>
+		<view class="text">就先看到这吧</view>
+		<view class="line"></view>
+	</view>
+</scroll-view>
+<view class="btn-area">
+	<navigator hover-class="active" url="/pages/map/map" open-type="reLaunch">
+		<view class="icon-map"></view>
+		<view class="text">地图</view>
+	</navigator>
+	<navigator hover-class="active" class="now">
+		<view class="icon-explore"></view>
+		<view class="text">广场</view>
+	</navigator>
+	<navigator hover-class="active" url="/pages/heart/heart" open-type="reLaunch">
+		<view class="icon-heartbeat"></view>
+		<view class="text">表白</view>
+	</navigator>
+<!-- 	<navigator hover-class="active" url="/pages/mine/mine" open-type="reLaunch">
+		<view class="icon-user"></view>
+		<view class="text">我的</view>
+	</navigator> -->
+</view>

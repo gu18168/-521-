@@ -1,0 +1,31 @@
+<view class="bg"></view>
+
+<view class="wrapper">
+</view>
+
+<view class="card">
+	<view class="card-header" style="background-color: {{bgColor}}">
+		<input placeholder="在此输入表白对象" placeholder-style="color: #fff;" bindchange="changeReader" />
+		<text>我一直想对你说</text>
+	</view>
+	<view class="card-content">
+		<text>Dear,</text>
+		<textarea placeholder="在此输入表白内容" bindinput="changeContent"/>
+		<view class="d-line" style="background-color: {{bgColor}}"></view>
+	</view>
+	<view class="card-footer">
+		<view class="color-wrapper">
+			<view class="color orange" bindtap="orange">
+				<text wx:if="{{bgColor == '#ffa07a'}}">※</text>
+			</view>
+			<view class="color pink" bindtap="pink">
+				<text wx:if="{{bgColor == '#F47A9B'}}">※</text>
+			</view>
+			<view class="color blue" bindtap="blue">
+				<text wx:if="{{bgColor == '#54A3E5'}}">※</text>
+			</view>
+		</view>
+		<view class="btn" bindtap="submit">表白</view>
+	</view>
+	<view class="c-line"></view>
+</view>

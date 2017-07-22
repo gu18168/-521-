@@ -1,6 +1,8 @@
 var utils = require('./utils');
 var constants = require('./constants');
 
+var popup = require('../../../utils/popup.js');
+
 /***
  * @class
  * 表示动态过程中发生的异常
@@ -24,6 +26,7 @@ var defaultOptions = {
   success: noop,
   fail: noop,
   momentUrl: null,
+  getUrl: null,
 };
 
 var moment = function moment(options) {
@@ -42,6 +45,8 @@ var moment = function moment(options) {
       header: header,
       method: options.method,
       data: {
+        uuid: options.uuid,
+        nickname: options.nickname,
         lat: options.lat,
         lng: options.lng,
         title: options.title,
@@ -77,12 +82,66 @@ var moment = function moment(options) {
   doMoment();
 };
 
+var getMoment = function(lat, lng) {
+  if (!defaultOptions.getUrl) {
+    console.log('地址未设置');
+    return;
+  }
+
+  popup.showBusy('刷新中');
+
+  wx.request({
+    url: defaultOptions.getUrl,
+    header: {},
+    method: defaultOptions.method,
+    data: {
+      lat: lat,
+      lng: lng
+    },
+
+    success: function(result) {
+      var data = result.data;
+
+      if (data && data[constants.WX_SESSION_MAGIC_ID]) {
+        if (data.res) {
+          let app = getApp();
+          app.globalData.mark.clear();
+          for (let i = data.res.length - 1; i >= 0; i--) {
+            if (app.globalData.mark.full()) {
+              app.globalData.mark.dequeue();
+            }
+            app.globalData.mark.enqueue(data.res[i]);
+          }
+          popup.showSuccess('刷新成功');
+        } else {
+          popup.showModel('刷新失败', '可能是附近没有动态，请退出重进试试');
+        }
+      } else {
+        popup.showModel('刷新失败', '出现了一些奇怪的问题');
+      }
+    },
+
+    fail: function () {
+      popup.showModel('刷新失败', '网络错误或者是服务器发生异常');
+    }
+  });
+
+  return true;
+
+}
+
 var setMomentUrl = function (momentUrl) {
   defaultOptions.momentUrl = momentUrl;
+}
+
+var setGetMomentUrl = function (getUrl) {
+  defaultOptions.getUrl = getUrl;
 }
 
 module.exports = {
   MomentError: MomentError,
   moment: moment,
+  getMoment: getMoment,
   setMomentUrl: setMomentUrl,
+  setGetMomentUrl: setGetMomentUrl,
 }
