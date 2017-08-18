@@ -11,7 +11,7 @@
 		              <text class="actInfo">还剩</text><text class="focus" style="margin: 0 6rpx;">{{item.rest}}</text><text class="actInfo">天</text>
 		            </view>
 		          </view>
-		          <text style="flex-shrink: 1;">{{item.desc}}</text>
+		          <text style="flex-shrink: 1; font-size: 30rpx; margin-bottom: 16rpx;">{{item.desc}}</text>
 		        </view>
 		        <view class="btn-wrap">
 		          <view class="btn" hover-class="btnHover" bindtap="actMore">

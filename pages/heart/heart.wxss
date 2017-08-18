@@ -15,10 +15,11 @@
 .bb-btn {
 	color: #E2455F;
 	font-weight: 700;
-	font-size: 60rpx;
+	font-size: 52rpx;
 	letter-spacing: -2px;
 	width: 300rpx;
 	height: 70rpx;
+	line-height: 70rpx;
 	text-align: center;
 	margin: 20rpx auto;
 	background-color: #FBF9C7;
@@ -83,6 +84,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 20rpx;
 }
 
 .bb-card .bb-guess {
